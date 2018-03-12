@@ -16,6 +16,14 @@
         "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\2e7707182262353dec43f37fb5462e0c\\res\\color\\abc_tint_spinner.xml"
     },
     {
+        "merged": "E:\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_tint.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\ffbf8b834a08d6373e3b212666465db0\\res\\color\\common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "E:\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\ffbf8b834a08d6373e3b212666465db0\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\switch_thumb_material_light.xml",
         "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\2e7707182262353dec43f37fb5462e0c\\res\\color\\switch_thumb_material_light.xml"
     },
@@ -50,6 +58,10 @@
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\abc_primary_text_material_dark.xml",
         "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\2e7707182262353dec43f37fb5462e0c\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "E:\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\ffbf8b834a08d6373e3b212666465db0\\res\\color\\common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\abc_secondary_text_material_dark.xml",

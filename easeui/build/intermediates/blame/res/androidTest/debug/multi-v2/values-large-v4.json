@@ -29,6 +29,36 @@
                     }
                 }
             ]
+        },
+        {
+            "outputFile": "E:\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "map": [
+                {
+                    "source": "E:\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,108",
+                        "endColumns": "52,53",
+                        "endOffsets": "103,157"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "E:\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-large-v4\\values-large-v4.xml",
+            "map": [
+                {
+                    "source": "E:\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,108",
+                        "endColumns": "52,53",
+                        "endOffsets": "103,157"
+                    }
+                }
+            ]
         }
     ]
 }

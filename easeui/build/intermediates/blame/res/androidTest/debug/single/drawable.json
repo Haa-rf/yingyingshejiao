@@ -16,12 +16,12 @@
         "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\2e7707182262353dec43f37fb5462e0c\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_internal_bg.xml",
-        "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\2e7707182262353dec43f37fb5462e0c\\res\\drawable\\abc_cab_background_internal_bg.xml"
-    },
-    {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_textfield_search_material.xml",
         "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\2e7707182262353dec43f37fb5462e0c\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-24.2.1.aar\\2e7707182262353dec43f37fb5462e0c\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\ease_search_clear.xml",

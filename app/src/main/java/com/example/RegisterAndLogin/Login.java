@@ -1,3 +1,7 @@
+import android.util.Log;
+
+import com.example.User.PrivilegedUser;
+import com.example.User.User;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 

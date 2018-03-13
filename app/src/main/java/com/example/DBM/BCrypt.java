@@ -776,3 +776,4 @@ public class BCrypt {
 		return ret == 0;
 	}
 }
+

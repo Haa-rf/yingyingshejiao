@@ -7,6 +7,7 @@ package com.example.User;
 public class User {
     private String username;
     private String pwd;
+    private int id;
     public User(){
         return;
     }
@@ -14,6 +15,12 @@ public class User {
     public User(String username, String pwd){
         this.username = username;
         this.pwd = pwd;
+    }
+
+    public User(String username, String pwd, int id){
+        this.username = username;
+        this.pwd = pwd;
+        this.id = id;
     }
 
     public String getUsername(){
@@ -24,6 +31,10 @@ public class User {
         return pwd;
     }
 
+    public int getId(){
+        return id;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -31,5 +42,8 @@ public class User {
     public void setPwd(String pwd){
         this.pwd=pwd;
     }
-}
 
+    public void setId(int id){
+        this.id = id;
+    }
+}

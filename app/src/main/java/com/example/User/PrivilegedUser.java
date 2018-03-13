@@ -7,6 +7,10 @@ package com.example.User;
 public class PrivilegedUser extends User {
     protected short Privilege;
 
+    public PrivilegedUser(){
+        return;
+    }
+
     public PrivilegedUser(String username, String pwd) {
         super(username, pwd);
     }

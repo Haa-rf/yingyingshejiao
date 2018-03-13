@@ -7,6 +7,9 @@ package com.example.User;
 public class User {
     private String username;
     private String pwd;
+    public User(){
+        return;
+    }
 
     public User(String username, String pwd){
         this.username = username;
@@ -29,3 +32,4 @@ public class User {
         this.pwd=pwd;
     }
 }
+

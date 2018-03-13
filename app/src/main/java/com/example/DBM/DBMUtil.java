@@ -32,6 +32,14 @@ public class DBMUtil {
         return i;
     }
 
+    private static int getMaxId(Context context){
+        openHelper=DBM.getDBInstance(context);
+        db=openHelper.getReadableDatabase();
+        Cursor cursor=db.rawQuery("select max(id) AS maxId from register_t", null);
+        int maxId = cursor.getInt(cursor.getColumnIndex("maxId"));
+        return maxId;
+    }
+
     private static String CurrentTime(){
         Date date = new Date();
         String rt = date.toString();
@@ -44,7 +52,7 @@ public class DBMUtil {
         db=openHelper.getWritableDatabase();
         String date = CurrentTime();
         db.execSQL("insert into register_t (id, username, pwd, datetime) values(?,?,?,?)",
-                new Object[]{count(context), user.getUsername(), user.getPwd(), date});
+                new Object[]{getMaxId(context), user.getUsername(), user.getPwd(), date});
 
     }
 

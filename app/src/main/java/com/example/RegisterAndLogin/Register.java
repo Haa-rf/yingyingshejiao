@@ -30,7 +30,7 @@ public class Register {
         user.setUsername(username);
         user.setPwd(pwd);
         try{
-            DBMUtil.add(context, user);
+            DBMUtil.addUser(context, user);
             EMClient.getInstance().createAccount(username, pwd);
         } catch (HyphenateException e) {
             Log.i(TAG, "Failed Register");

@@ -13,6 +13,10 @@ import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 
+
+/**
+ * A Register screen that for Registering
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText userNameEditText;
@@ -28,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         confirmPwdEditText = (EditText) findViewById(R.id.confirm_password);
     }
 
+    //注册函数
     public void register(View view) {
         final String username = userNameEditText.getText().toString().trim();
         final String pwd = passwordEditText.getText().toString().trim();

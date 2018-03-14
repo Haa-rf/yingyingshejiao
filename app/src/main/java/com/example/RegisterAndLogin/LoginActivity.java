@@ -41,13 +41,15 @@ public class LoginActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
         // enter the main activity if already logged in
-        //注释部分是demo的源码实现
-//        if (DemoHelper.getInstance().isLoggedIn()) {
-//            autoLogin = true;
-//            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//
-//            return;
-//        }
+        // 判断sdk是否登录成功过，是进入主界面，否则跳转到登陆界面
+        if (EMClient.getInstance().isLoggedInBefore()) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            autoLogin = true;
+            startActivity(intent);
+            //finish();
+            return;
+        }
+
         setContentView(R.layout.activity_login);
 
         usernameEditText = (EditText) findViewById(R.id.username);

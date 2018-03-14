@@ -50,13 +50,16 @@ public class DBMUtil {
     private static int getMaxId(Context context){
         openHelper=DBM.getDBInstance(context);
         db=openHelper.getReadableDatabase();
+        int maxId=-1;
         Cursor cursor=db.rawQuery("select max(id) AS maxId from register_t", null);
         if(0 == cursor.getCount()) {
             return 0;
         }
         else {
-            int maxId = cursor.getInt(cursor.getColumnIndex("maxId"));
-            return maxId;
+            if(cursor.moveToFirst()) {
+                maxId = cursor.getInt(cursor.getColumnIndex("maxId"));
+            }
+                return maxId;
         }
     }
 
@@ -118,7 +121,7 @@ public class DBMUtil {
             try {
                 db.execSQL("insert into " + FriendDBTable + " (id, id_f, datetime) values(?,?,?)",
                         new Object[]{String.valueOf(user1.getId()), String.valueOf(user2.getId()), date});
-                db.execSQL("insert into " + FriendDBTable + " (id, id_f, datetime) values(?,?)",
+                db.execSQL("insert into " + FriendDBTable + " (id, id_f, datetime) values(?,?,?)",
                         new Object[]{String.valueOf(user2.getId()), String.valueOf(user1.getId()), date});
                 db.setTransactionSuccessful();
             }finally {
@@ -150,7 +153,7 @@ public class DBMUtil {
     public static User query(Context context,int id){
         openHelper=DBM.getDBInstance(context);
         db=openHelper.getWritableDatabase();
-        Cursor cursor=db.rawQuery("select * from register_t where personid=?", new String[]{String.valueOf(id)});
+        Cursor cursor=db.rawQuery("select * from register_t where id=?", new String[]{String.valueOf(id)});
         while(cursor.moveToFirst()){
             int personid=cursor.getInt(cursor.getColumnIndex("id"));
             String name=cursor.getString(cursor.getColumnIndex("username"));

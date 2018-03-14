@@ -118,7 +118,7 @@ public class DBMUtil {
             try {
                 db.execSQL("insert into " + FriendDBTable + " (id, id_f, datetime) values(?,?,?)",
                         new Object[]{String.valueOf(user1.getId()), String.valueOf(user2.getId()), date});
-                db.execSQL("insert into " + FriendDBTable + " (id, id_f, datetime) values(?,?)",
+                db.execSQL("insert into " + FriendDBTable + " (id, id_f, datetime) values(?,?,?)",
                         new Object[]{String.valueOf(user2.getId()), String.valueOf(user1.getId()), date});
                 db.setTransactionSuccessful();
             }finally {

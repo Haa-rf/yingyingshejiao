@@ -113,7 +113,7 @@ public class DBMUtil {
         openHelper=DBM.getDBInstance(context);
         db=openHelper.getWritableDatabase();
         String date = CurrentTime();
-        if(!FriendAlreadyAdded(user1.getId(), user2.getId())){
+        if(FriendAlreadyAdded(user1.getId(), user2.getId())){
             Log.i(TAG, "Friends already in database.");
         }
         else{
@@ -123,6 +123,26 @@ public class DBMUtil {
                         new Object[]{String.valueOf(user1.getId()), String.valueOf(user2.getId()), date});
                 db.execSQL("insert into " + FriendDBTable + " (id, id_f, datetime) values(?,?,?)",
                         new Object[]{String.valueOf(user2.getId()), String.valueOf(user1.getId()), date});
+                db.setTransactionSuccessful();
+            }finally {
+                db.endTransaction();
+            }
+        }
+    }
+
+    public static void deleteFriend(Context context, User user1, User user2){
+        openHelper=DBM.getDBInstance(context);
+        db=openHelper.getWritableDatabase();
+        if(!FriendAlreadyAdded(user1.getId(),user2.getId())){
+            Log.i(TAG, "Friends relation not exists.");
+        }
+        else{
+            db.beginTransaction();
+            try{
+                db.execSQL("delete from "+FriendDBTable+" where id=? and id_f=",
+                        new Object[]{String.valueOf(user1.getId()), String.valueOf(user2.getId())});
+                db.execSQL("delete from "+FriendDBTable+" where id=? and id_f=",
+                        new Object[]{String.valueOf(user2.getId()), String.valueOf(user1.getId())});
                 db.setTransactionSuccessful();
             }finally {
                 db.endTransaction();

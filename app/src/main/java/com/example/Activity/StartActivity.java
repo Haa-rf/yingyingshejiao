@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.example.R;
+import com.example.RegisterAndLogin.LoginActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,7 +21,7 @@ public class StartActivity extends AppCompatActivity {
         init();
     }
     private  void init(){
-        final Intent intent=new Intent(StartActivity.this,MainActivity.class);
+        final Intent intent=new Intent(StartActivity.this,LoginActivity.class);
         final Timer timer=new Timer();
         TimerTask task=new TimerTask() {
             @Override

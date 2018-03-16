@@ -19,7 +19,13 @@ public class PrivilegedUser extends User {
         super(username, pwd);
         this.Privilege = Privilege;
     }
+
+    public PrivilegedUser(String username, String pwd, short Privilege, int id){
+        super(username, pwd, id);
+        this.Privilege = Privilege;
+    }
     void getPrivilege(short Privilege){
         this.Privilege=Privilege;
     }
 }
+

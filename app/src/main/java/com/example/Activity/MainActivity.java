@@ -6,48 +6,44 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Message;
 import android.os.PowerManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.Gravity;
 import android.widget.Toast;
 
-import com.example.Constant;
-import com.example.ContactListFragment;
+
+import com.ashokvarma.bottomnavigation.BottomNavigationBar;
+import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.ashokvarma.bottomnavigation.ShapeBadgeItem;
+import com.ashokvarma.bottomnavigation.TextBadgeItem;
+import com.example.Contacts.ContactsFragment;
+import com.example.Conversation.ConversationFragment;
 import com.example.R;
-import com.example.RegisterAndLogin.LoginActivity;
-import com.example.Utils.ChatMessage;
-import com.hyphenate.util.EMLog;
+import com.example.UserCenter.UserCenterFragment;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener{
 
     protected static final String TAG = "MainActivity";
-    // textview for unread message count
-    private TextView unreadLabel;
-    // textview for unread event message
-    private TextView unreadAddressLable;
 
-    private Button[] mTabs;
-    private ContactListFragment contactListFragment;
-    private Fragment[] fragments;
-    private int index;
-    private int currentTabIndex;
-    // user logged into another device
-    public boolean isConflict = false;
-    // user account was removed
-    private boolean isCurrentAccountRemoved = false;
+
+    private ViewPager viewPager;
+    private BottomNavigationBar bottomNavigationBar;
+    private List<Fragment> mList; //ViewPager的数据源
+    private ShapeBadgeItem mShapeBadgeItem;//添加角标
+    private TextBadgeItem mTextBadgeItem;
+
     private Context context;
     private boolean ckeck;
 
@@ -87,9 +83,87 @@ public class MainActivity extends AppCompatActivity {
         // runtime permission for android 6.0, just require all permissions here for simple
         requestPermissions();
 
-        initView();
+        initBottomNavigationBar();
+        initViewPager();
 
     }
+
+    //初始化ViewPager
+    private void initViewPager() {
+        mList = new ArrayList<>();
+        mList.add(new ConversationFragment());
+        mList.add(new ContactsFragment());
+        mList.add(new UserCenterFragment());
+
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager.setOnPageChangeListener(this);
+        MainAdapter mainAdapter = new MainAdapter(getSupportFragmentManager(), mList);
+        viewPager.setAdapter(mainAdapter); //视图加载适配器
+    }
+
+    /**
+     * 初始化，初始化底部导航
+     */
+    private void initBottomNavigationBar() {
+
+        /**
+         * bottomNavigation 设置
+         */
+
+        bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
+
+        /** 导航基础设置 包括按钮选中效果 导航栏背景色等 */
+        bottomNavigationBar
+                .setTabSelectedListener(this)
+                .setMode(BottomNavigationBar.MODE_SHIFTING)
+                /**
+                 *  setMode() 内的参数有三种模式类型：
+                 *  MODE_DEFAULT 自动模式：导航栏Item的个数<=3 用 MODE_FIXED 模式，否则用 MODE_SHIFTING 模式
+                 *  MODE_FIXED 固定模式：未选中的Item显示文字，无切换动画效果。
+                 *  MODE_SHIFTING 切换模式：未选中的Item不显示文字，选中的显示文字，有切换动画效果。
+                 */
+
+                .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_RIPPLE)
+                /**
+                 *  setBackgroundStyle() 内的参数有三种样式
+                 *  BACKGROUND_STYLE_DEFAULT: 默认样式 如果设置的Mode为MODE_FIXED，将使用BACKGROUND_STYLE_STATIC
+                 *                                    如果Mode为MODE_SHIFTING将使用BACKGROUND_STYLE_RIPPLE。
+                 *  BACKGROUND_STYLE_STATIC: 静态样式 点击无波纹效果
+                 *  BACKGROUND_STYLE_RIPPLE: 波纹样式 点击有波纹效果
+                 */
+
+                .setActiveColor("#FF107FFD") //选中颜色
+                .setInActiveColor("#e9e6e6") //未选中颜色
+                .setBarBackgroundColor("#1ccbae");//导航栏背景色
+
+        mTextBadgeItem = new TextBadgeItem()
+                .setBorderWidth(4)
+                .setBackgroundColorResource(R.color.colorPrimary)
+                .setText("5")
+                .setTextColorResource(R.color.btn_white_pressed)
+                .setBorderColorResource(R.color.colorPrimaryDark)  //外边界颜色
+                .setHideOnSelect(false);
+
+        mShapeBadgeItem = new ShapeBadgeItem()
+                .setShape(ShapeBadgeItem.SHAPE_OVAL)
+                .setShapeColor(R.color.colorPrimary)
+                .setShapeColorResource(R.color.colorPrimary)
+                .setSizeInDp(this,10,10)
+                .setEdgeMarginInDp(this,2)
+//                .setSizeInPixels(30,30)
+//                .setEdgeMarginInPixels(-1)
+                .setGravity(Gravity.TOP | Gravity.END)
+                .setHideOnSelect(false);
+
+        /** 添加导航按钮 */
+        bottomNavigationBar
+                .addItem(new BottomNavigationItem(R.drawable.message_icon_normal, "消息").setActiveColorResource(R.color.btn_white_normal).setInactiveIconResource(R.drawable.message_icon_selected).setInActiveColorResource(R.color.main_bottom_button_bg).setBadgeItem(mTextBadgeItem))
+                .addItem(new BottomNavigationItem(R.drawable.contacts_icon_normal, "联系人").setActiveColorResource(R.color.btn_white_normal).setInactiveIconResource(R.drawable.contacts_icon_selected).setInActiveColorResource(R.color.main_bottom_button_bg).setBadgeItem(mShapeBadgeItem))
+                .addItem(new BottomNavigationItem(R.drawable.usercenter_icon_normal, "个人信息").setActiveColorResource(R.color.btn_white_normal).setInactiveIconResource(R.drawable.usercenter_icon_selected).setInActiveColorResource(R.color.main_bottom_button_bg))
+                .setFirstSelectedPosition(0 )
+                .initialise(); //initialise 一定要放在 所有设置的最后一项
+    }
+
 
     /**
      * 使用AddPermissions包申请权限
@@ -161,18 +235,36 @@ public class MainActivity extends AppCompatActivity {
                 .start();
     }
 
-    /**
-     * init views
-     */
-    private void initView() {
-        unreadLabel = (TextView) findViewById(R.id.unread_msg_number);
-        unreadAddressLable = (TextView) findViewById(R.id.unread_address_number);
-        mTabs = new Button[3];
-        mTabs[0] = (Button) findViewById(R.id.btn_conversation);
-        mTabs[1] = (Button) findViewById(R.id.btn_address_list);
-        mTabs[2] = (Button) findViewById(R.id.btn_setting);
-        // select first tab
-        mTabs[0].setSelected(true);
+    @Override
+    public void onTabSelected(int position) {
+        //tab被选中
+        viewPager.setCurrentItem(position);
+    }
+
+    @Override
+    public void onTabUnselected(int position) {
+
+    }
+
+    @Override
+    public void onTabReselected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        //ViewPager滑动
+        bottomNavigationBar.selectTab(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 
 }

@@ -1,43 +1,43 @@
 [
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_seabar_input.9.png",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_seabar_input.9.png"
-    },
-    {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_record_animate_01.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_record_animate_01.png"
+    },
+    {
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_seabar_input.9.png",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_seabar_input.9.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_msg_state_fail_resend_pressed.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_msg_state_fail_resend_pressed.png"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_groups_icon.png",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_groups_icon.png"
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatto_bg_focused.9.png",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatto_bg_focused.9.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_7.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_7.png"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatto_bg_focused.9.png",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatto_bg_focused.9.png"
-    },
-    {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_settings_selected.png",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_settings_selected.png"
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_groups_icon.png",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_groups_icon.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_video_play_btn_small_nor.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_video_play_btn_small_nor.png"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_22.png",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_22.png"
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_settings_selected.png",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_settings_selected.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatfrom_bg_focused.9.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatfrom_bg_focused.9.png"
+    },
+    {
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_22.png",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_22.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_8.png",
@@ -68,12 +68,12 @@
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_to_group_details_normal.png"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_6.png",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_6.png"
-    },
-    {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_default_avatar.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_default_avatar.png"
+    },
+    {
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_6.png",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_6.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_9.png",

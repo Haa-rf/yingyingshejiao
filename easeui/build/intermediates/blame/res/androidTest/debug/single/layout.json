@@ -40,12 +40,12 @@
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_message.xml"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_activity_baidumap.xml",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_activity_baidumap.xml"
-    },
-    {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_big_expression.xml",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_big_expression.xml"
+    },
+    {
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_activity_baidumap.xml",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_activity_baidumap.xml"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_file.xml",
@@ -72,16 +72,16 @@
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_voice_call.xml"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_video.xml",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_video.xml"
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_file.xml",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_file.xml"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_sent_picture.xml",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_sent_picture.xml"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_file.xml",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_file.xml"
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_received_video.xml",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_video.xml"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_activity_show_big_image.xml",

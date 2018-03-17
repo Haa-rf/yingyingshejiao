@@ -8,6 +8,21 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册"
+            android:textSize="25dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/btn_white_normal"
+            android:layout_marginLeft="20dp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1" >
 

@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.R;
 
-public class UserCenterActivity extends AppCompatActivity {
+public class UserInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_center);
+        setContentView(R.layout.activity_user_info);
     }
 }

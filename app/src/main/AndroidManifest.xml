@@ -62,11 +62,10 @@
             </intent-filter>
         </receiver>
 
-        <!--activity注册-->
-        <activity android:name=".Activity.MainActivity"></activity>
-        <activity android:name=".RegisterAndLogin.LoginActivity"></activity>
+        <!-- activity注册 -->
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".RegisterAndLogin.LoginActivity" />
         <activity android:name=".RegisterAndLogin.RegisterActivity" />
-
         <activity android:name=".Activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -75,7 +74,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RuntimePermissions" />
-
+        <activity android:name=".UserCenter.UserCenterActivity"></activity>
     </application>
 
 </manifest>

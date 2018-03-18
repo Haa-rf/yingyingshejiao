@@ -74,7 +74,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".RuntimePermissions" />
-        <activity android:name=".UserCenter.UserCenterActivity"></activity>
+        <activity android:name=".UserCenter.UserCenterActivity" />
+        <activity android:name=".Call.CallActivity" />
+        <activity android:name=".Call.VideoCallActivity" />
+        <activity android:name=".Call.VoiceCallActivity" />
+
+        <receiver android:name=".Call.FloatWindow">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/float_window_info" />
+        </receiver>
     </application>
 
 </manifest>

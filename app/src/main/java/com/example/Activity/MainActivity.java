@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,8 @@ import com.yanzhenjie.permission.RequestExecutor;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    protected MainActivity activity;
 
     protected static final String TAG = "MainActivity";
     // textview for unread message count

@@ -40,45 +40,6 @@
             ]
         },
         {
-            "outputFile": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-zu\\values-zu.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.4.0.aar\\1ccf949f7ec3e1576ca91d483be71215\\res\\values-zu\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "190",
-                        "endOffsets": "475"
-                    },
-                    "to": {
-                        "startLines": "9",
-                        "startColumns": "4",
-                        "startOffsets": "1166",
-                        "endColumns": "190",
-                        "endOffsets": "1352"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\7f97f40557e5169e7f4ce373b375b640\\res\\values-zu\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "283,392,600,733,835,1062,1189,1324,1543,1651,1847,1976,2193,2376,2463,2558",
-                        "endColumns": "108,207,132,101,226,126,134,218,107,195,128,216,182,86,94,109",
-                        "endOffsets": "391,599,732,834,1061,1188,1323,1542,1650,1846,1975,2192,2375,2462,2557,2667"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,218,426,563,669,896,1027,1357,1576,1688,1884,2017,2234,2421,2512,2611",
-                        "endColumns": "112,207,136,105,226,130,138,218,111,195,132,216,186,90,98,113",
-                        "endOffsets": "213,421,558,664,891,1022,1161,1571,1683,1879,2012,2229,2416,2507,2606,2720"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-zu\\values-zu.xml",
             "map": [
                 {
@@ -100,45 +61,6 @@
                 },
                 {
                     "source": "C:\\Users\\chen\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\b1fb3b2a3d69e4de60a7f252bd228a67\\res\\values-zu\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "283,392,600,733,835,1062,1189,1324,1543,1651,1847,1976,2193,2376,2463,2558",
-                        "endColumns": "108,207,132,101,226,126,134,218,107,195,128,216,182,86,94,109",
-                        "endOffsets": "391,599,732,834,1061,1188,1323,1542,1650,1846,1975,2192,2375,2462,2557,2667"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,218,426,563,669,896,1027,1357,1576,1688,1884,2017,2234,2421,2512,2611",
-                        "endColumns": "112,207,136,105,226,130,138,218,111,195,132,216,186,90,98,113",
-                        "endOffsets": "213,421,558,664,891,1022,1161,1571,1683,1879,2012,2229,2416,2507,2606,2720"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-zu\\values-zu.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.4.0.aar\\1ccf949f7ec3e1576ca91d483be71215\\res\\values-zu\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "285",
-                        "endColumns": "190",
-                        "endOffsets": "475"
-                    },
-                    "to": {
-                        "startLines": "9",
-                        "startColumns": "4",
-                        "startOffsets": "1166",
-                        "endColumns": "190",
-                        "endOffsets": "1352"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\7f97f40557e5169e7f4ce373b375b640\\res\\values-zu\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

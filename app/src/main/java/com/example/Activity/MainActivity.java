@@ -36,6 +36,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener{
 
+    protected MainActivity activity;
+
     protected static final String TAG = "MainActivity";
 
 

@@ -13,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.widget.Toast;
 
 
@@ -265,6 +266,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            onDestroy();
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

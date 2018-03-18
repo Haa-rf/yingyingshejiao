@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Activity.MainActivity;
+import com.example.Chat.ChatTestActivity;
 import com.example.R;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
@@ -166,9 +167,10 @@ public class LoginActivity extends AppCompatActivity{
 
                 Intent intent = new Intent(LoginActivity.this,
                         MainActivity.class);
+                finish();
                 startActivity(intent);
 
-                finish();
+
             }
 
             @Override

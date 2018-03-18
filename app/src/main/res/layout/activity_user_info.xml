@@ -1,9 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.UserCenter.UserInfoActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/userInfoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:background="@color/mainTitle">
+
+        <TextView
+            android:id="@+id/userInfoTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:text="Me"
+            android:textColor="@color/btn_white_normal"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="468dp"
+        android:layout_below="@id/userInfoTitle">
+
+        <ImageView
+            android:id="@+id/image_user"
+            android:layout_width="168dp"
+            android:layout_height="168dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="77dp"
+            app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+
+        <TextView
+            android:id="@+id/Text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Text_id"
+            android:layout_alignStart="@+id/Text_id"
+            android:layout_below="@+id/image_user"
+            android:layout_marginTop="39dp"
+            android:text="name：" />
+
+        <EditText
+            android:id="@+id/name_editText"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/Text_name"
+            android:layout_alignBottom="@+id/Text_name"
+            android:layout_toEndOf="@+id/Text_name"
+            android:layout_toRightOf="@+id/Text_name" />
+
+        <TextView
+            android:id="@+id/Text_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_editText"
+            android:layout_marginEnd="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_marginTop="24dp"
+            android:layout_toLeftOf="@+id/image_user"
+            android:layout_toStartOf="@+id/image_user"
+            android:text="ID:" />
+
+        <EditText
+            android:id="@+id/id_editText"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/Text_id"
+            android:layout_alignBottom="@+id/Text_id"
+            android:layout_alignLeft="@+id/name_editText"
+            android:layout_alignStart="@+id/name_editText"
+            android:enabled="false" />
+
+        <TextView
+            android:id="@+id/Text_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_editText"
+            android:layout_marginTop="14dp"
+            android:layout_toLeftOf="@+id/image_user"
+            android:layout_toStartOf="@+id/image_user"
+            android:text="sex：" />
+
+        <CheckBox
+            android:id="@+id/sex_checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/Text_sex"
+            android:layout_alignBottom="@+id/Text_sex"
+            android:layout_alignLeft="@+id/id_editText"
+            android:layout_alignStart="@+id/id_editText"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:text="男" />
+
+        <CheckBox
+            android:id="@+id/sex_checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/Text_sex"
+            android:layout_alignBottom="@+id/Text_sex"
+            android:layout_alignEnd="@+id/id_editText"
+            android:layout_alignRight="@+id/id_editText"
+            android:layout_marginEnd="17dp"
+            android:layout_marginRight="17dp"
+            android:text="女" />
+
+        <EditText
+            android:id="@+id/sign_editText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

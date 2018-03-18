@@ -20,7 +20,6 @@ import java.util.ListIterator;
 
 import static com.example.DBM.DBM.FriendDBTable;
 import static com.example.DBM.DBM.RegisterDBTable;
-import static com.example.DBM.DBM.ImageDBTable;
 import static java.util.Arrays.asList;
 
 /**

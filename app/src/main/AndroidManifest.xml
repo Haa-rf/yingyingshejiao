@@ -66,6 +66,8 @@
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".RegisterAndLogin.LoginActivity" />
         <activity android:name=".RegisterAndLogin.RegisterActivity" />
+        <activity android:name=".Chat.ChatTestActivity"></activity>
+        <activity android:name=".Chat.ChatActivity"></activity>
         <activity android:name=".Activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

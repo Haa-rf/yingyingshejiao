@@ -1,9 +1,341 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.UserCenter.SettingActivity">
+    android:background="@color/common_bg"
+    android:orientation="vertical" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/userTitle"
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:background="@color/mainTitle">
+
+        <TextView
+            android:id="@+id/userTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:text="设置"
+            android:textColor="@color/btn_white_normal"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dip"
+                    android:gravity="bottom|left"
+                    android:paddingLeft="10dip"
+                    android:text="@string/notify"
+                    android:textColor="@color/btn_gray_pressed" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/btn_gray_normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_switch_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="10dip"
+                        android:text="@string/newnotify"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:typeface="serif" />
+
+                    <com.hyphenate.easeui.widget.EaseSwitchButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/switch_notification"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textview1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:background="#E6E6E6" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_switch_sound"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="10dip"
+                        android:text="@string/voice"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:typeface="serif" />
+
+                    <com.hyphenate.easeui.widget.EaseSwitchButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/switch_sound"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textview2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:background="#E6E6E6" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_switch_vibrate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="10dip"
+                        android:text="@string/shake"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:typeface="serif" />
+
+                    <com.hyphenate.easeui.widget.EaseSwitchButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/switch_vibrate"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/btn_gray_normal" />
+                <RelativeLayout
+                    android:id="@+id/rl_push_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="10dip"
+                        android:text="@string/push_settings"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:typeface="serif" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/btn_gray_normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginTop="10dip"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dip"
+                        android:gravity="bottom|left"
+                        android:paddingLeft="10dip"
+                        android:text="@string/chatset"
+                        android:textColor="@color/btn_gray_pressed" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="@color/btn_gray_normal" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_switch_speaker"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="10dip"
+                        android:text="@string/yangshengqi"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        android:typeface="serif" />
+
+                    <com.hyphenate.easeui.widget.EaseSwitchButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/switch_speaker"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/btn_gray_normal" />
+
+                <LinearLayout
+                    android:id="@+id/ll_black_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dip"
+                        android:text="@string/book_black"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/btn_gray_normal" />
+
+                <LinearLayout
+                    android:id="@+id/ll_call_option"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:padding="10dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dip"
+                        android:text="Call option"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/btn_gray_normal" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textview4"
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:background="#E6E6E6" />
+            <RelativeLayout
+                android:id="@+id/rl_switch_delete_msg_when_exit_group"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:padding="10dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="Delete msg when exit group"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:typeface="serif" />
+
+                <com.hyphenate.easeui.widget.EaseSwitchButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/switch_delete_msg_when_exit_group"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
+                android:background="#ffffff"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/btn_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginTop="12dp"
+                    android:text="Logout"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

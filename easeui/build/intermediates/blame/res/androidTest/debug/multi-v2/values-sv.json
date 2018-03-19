@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-sv\\values-sv.xml",
+            "outputFile": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-sv\\values-sv.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\7f97f40557e5169e7f4ce373b375b640\\res\\values-sv\\values.xml",
+                    "source": "C:\\Users\\chen\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\b8ea0f2fa155cac94ba8245f58801cb4\\res\\values-sv\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.4.0.aar\\1ccf949f7ec3e1576ca91d483be71215\\res\\values-sv\\values.xml",
+                    "source": "C:\\Users\\chen\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.4.0.aar\\1de8d8280426ce959bb6e0e98b316dc3\\res\\values-sv\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -40,10 +40,10 @@
             ]
         },
         {
-            "outputFile": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-sv\\values-sv.xml",
+            "outputFile": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-sv\\values-sv.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\7f97f40557e5169e7f4ce373b375b640\\res\\values-sv\\values.xml",
+                    "source": "C:\\Users\\chen\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\b8ea0f2fa155cac94ba8245f58801cb4\\res\\values-sv\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -60,7 +60,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.4.0.aar\\1ccf949f7ec3e1576ca91d483be71215\\res\\values-sv\\values.xml",
+                    "source": "C:\\Users\\chen\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.4.0.aar\\1de8d8280426ce959bb6e0e98b316dc3\\res\\values-sv\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

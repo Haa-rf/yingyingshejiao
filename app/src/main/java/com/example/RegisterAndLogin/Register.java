@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.DBM.DBMUtil;
-import com.example.User.PrivilegedUser;
 import com.example.User.User;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
@@ -16,22 +15,14 @@ import com.hyphenate.exceptions.HyphenateException;
 public class Register {
     private String TAG = "RegTAG";
     private User Ruser = new User();
-    private PrivilegedUser Privuser = new PrivilegedUser();
     public Register(User user){
         this.Ruser = user;
     }
 
-    public Register(PrivilegedUser puser){
-        this.Privuser = puser;
-    }
-
-    private void RegisterMain(String username, String pwd, Context context){
-        User user = new User();
-        user.setUsername(username);
-        user.setPwd(pwd);
+    private void RegisterMain(Context context, User user, String pwd){
         try{
             DBMUtil.addUser(context, user);
-            EMClient.getInstance().createAccount(username, pwd);
+            EMClient.getInstance().createAccount(user.getUser_name(), pwd);
         } catch (HyphenateException e) {
             Log.i(TAG, "Failed Register");
         }

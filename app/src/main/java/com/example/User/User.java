@@ -5,45 +5,68 @@ package com.example.User;
  */
 
 public class User {
-    private String username;
-    private String pwd;
-    private int id;
-    public User(){
-        return;
+    private String user_name;
+    private String user_nickname;
+    private String user_image;
+    private String user_sex="M";
+    private String user_sign="";
+
+    public User(){}
+
+    public User(String user_name, String user_nickname, String user_image, String user_sex){
+        this.user_name=user_name;
+        this.user_nickname=user_nickname;
+        this.user_image=user_image;
+        if(user_sex.equals("M") || user_sex.equals("F")) {
+            this.user_sex = user_sex;
+        }
     }
 
-    public User(String username, String pwd){
-        this.username = username;
-        this.pwd = pwd;
+    public User(String user_name, String user_nickname, String user_image, String user_sex, String user_sign){
+        this.user_name=user_name;
+        this.user_nickname=user_nickname;
+        this.user_image=user_image;
+        if(user_sex.equals("M") || user_sex.equals("F")) {
+            this.user_sex = user_sex;
+        }
+        this.user_sign=user_sign;
     }
 
-    public User(String username, String pwd, int id){
-        this.username = username;
-        this.pwd = pwd;
-        this.id = id;
+    public String getUser_name(){
+        return user_name;
     }
 
-    public String getUsername(){
-        return username;
+    public String getUser_nickname(){
+        return this.user_nickname;
     }
 
-    public String getPwd(){
-        return pwd;
+    public String getUser_image(){
+        return this.user_image;
     }
 
-    public int getId(){
-        return id;
+    public String getUser_sex(){
+        return this.user_sex;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getUser_sign(){
+        return user_sign;
     }
 
-    public void setPwd(String pwd){
-        this.pwd=pwd;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
-    public void setId(int id){
-        this.id = id;
+    public void setUser_nickname(String user_nickname){
+        this.user_nickname = user_nickname;
+    }
+
+    public void setUser_image(String user_image){
+        this.user_image=user_image;
+    }
+
+    public void setUser_sex(String user_sex){
+        if(user_sex.equals("M") || user_sex.equals("F")){
+            this.user_sex=user_sex;
+        }
     }
 }

@@ -34,5 +34,5 @@ dependencies {
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.1'
     implementation 'com.yanzhenjie:permission:2.0.0-rc3'
     compile 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'
-    implementation files('D:/Program Files/repo/yingyingshejiao/easeui/libs/eventbus-3.0.0.jar')
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

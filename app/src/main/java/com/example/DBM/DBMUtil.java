@@ -33,6 +33,7 @@ public class DBMUtil {
     private static SQLiteDatabase db;
     private static String TAG = "DBMUtilTAG";
     private static int max_friend = 150;
+    private static DBM openHelper;
 
     //Private
     //获取数据库里条目个数
@@ -55,8 +56,9 @@ public class DBMUtil {
         return rt;
     }
 
+
     private static void DBMOperate(Context context){
-        DBM openHelper = DBM.getDBInstance(context);
+        openHelper = DBM.getDBInstance(context);
         db= openHelper.getWritableDatabase();
     }
 

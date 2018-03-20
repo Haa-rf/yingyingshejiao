@@ -22,9 +22,10 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
 import com.example.Contacts.ContactsFragment;
-import com.example.Conversation.ConversationFragment;
+import com.example.Conversation.ConversationListFragment;
 import com.example.R;
 import com.example.UserCenter.UserCenterFragment;
+import com.hyphenate.easeui.ui.EaseConversationListFragment;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     //初始化ViewPager
     private void initViewPager() {
         mList = new ArrayList<>();
-        mList.add(new ConversationFragment());
+        mList.add(new ConversationListFragment());
         mList.add(new ContactsFragment());
         mList.add(new UserCenterFragment());
 

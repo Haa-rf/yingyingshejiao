@@ -40,20 +40,23 @@
                 android:id="@+id/imageButton"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="10dp"
-                 />
+                android:layout_alignLeft="@+id/sign"
+                android:layout_alignStart="@+id/sign"
+                android:layout_alignRight="@+id/nickname"
+                android:layout_alignTop="@+id/nickname"
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp" />
 
             <TextView
                 android:id="@+id/nickname"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@+id/imageButton"
-                android:layout_marginTop="30dp"
-                android:text="nickname:" />
+
+                android:layout_alignLeft="@+id/userID"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/userID"
+                android:layout_marginTop="54dp"
+                android:text="NickName:  嘤嘤" />
 
             <TextView
                 android:id="@+id/userID"
@@ -62,44 +65,47 @@
                 android:layout_alignLeft="@+id/sex"
                 android:layout_alignStart="@+id/sex"
                 android:layout_below="@+id/nickname"
-                android:layout_marginTop="31dp"
-                android:text="ID :" />
+                android:layout_marginTop="34dp"
+                android:text="UserName:  " />
+
             <TextView
                 android:id="@+id/sex"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="120dp"
-                android:layout_toRightOf="@id/imageButton"
-                android:text="sex :"
-                />
+                android:layout_alignBottom="@+id/imageButton"
+                android:layout_alignLeft="@+id/sign"
+                android:layout_alignStart="@+id/sign"
+                android:layout_marginBottom="24dp"
+                android:layout_marginLeft="193dp"
+                android:layout_marginStart="193dp"
+                android:text="Sex            :  " />
+
             <TextView
                 android:id="@+id/sign"
                 android:layout_width="375dp"
                 android:layout_height="80dp"
-                android:layout_centerInParent="true"
-                android:layout_below="@id/imageButton"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="30dp"
-                android:hint="签名"
-                />
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/imageButton"
+                android:layout_marginTop="36dp"
+                android:hint="签名" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp">
+            android:layout_marginTop="150dp">
 
             <ImageView
                 android:id="@+id/setting_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="150dp"
-                android:background="@drawable/setting_icon"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="150dp"
+                android:background="@drawable/setting_icon" />
 
             <TextView
                 android:layout_width="wrap_content"

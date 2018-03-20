@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.util.MarkEnforcingInputStream;
+import com.example.DBM.DBMUtil;
+import com.example.JavaBean.User;
 import com.example.R;
 import com.hyphenate.chat.EMClient;
 
@@ -29,6 +32,14 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
     private ImageView head;
     private TextView nickname;
     private TextView username;
+    private TextView sex;
+    private TextView sign;
+    private User Me;
+    private String user_name;
+    private String nick_name;
+    private String user_image;
+    private String user_sex;
+    private String user_sign;
 
 
     public UserCenterFragment() {
@@ -45,15 +56,32 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
         Title_layout = (RelativeLayout)view.findViewById(R.id.userTitle);
         Title_text = (TextView)view.findViewById(R.id.userTitleText);
         head = (ImageView)view.findViewById(R.id.imageButton);
-        nickname = (TextView)view.findViewById(R.id.nickname);
-        username = (TextView)view.findViewById(R.id.userID);
-        /**
-         * 还需要从数据库获取用户的信息并显示在界面上
-         */
+//        nickname = (TextView)view.findViewById(R.id.nickname);
+//        username = (TextView)view.findViewById(R.id.userID);
+//        sex =(TextView)view.findViewById(R.id.sex);
+//        /**
+//         * 还需要从数据库获取用户的信息并显示在界面上
+//         */
+//        user_name = EMClient.getInstance().getCurrentUser();
+//        username.setText("UserName:  "+user_name);
+//        Me = DBMUtil.query(getContext(),user_name);
+//        if (Me == null){
+//            Me.setUser_name(user_name);
+//            Me.setUser_nickname("嘤嘤");
+//            Me.setUser_image(Integer.toString(R.drawable.head_image_m1));
+//            head.setImageResource(R.drawable.head_image_m1);
+//            nickname.setText("NickName:  "+"嘤嘤");
+//        }else {
+//            nick_name = Me.getUser_nickname();
+//            user_image = Me.getUser_image();
+//            user_sex = Me.getUser_sex();
+//            user_sign = Me.getUser_sign();
+//            head.setImageResource(Integer.parseInt(user_image));
+//            nickname.setText("NickName:  "+nick_name);
+//
+//        }
         Title_text.setText("个人信息");
-        head.setImageResource(R.drawable.head_image_m1);
-        nickname.setText("嘤嘤");
-        username.setText(EMClient.getInstance().getCurrentUser());
+
         //添加按钮点击事件
         userInfo_layout.setOnClickListener(this);
         setting_layout.setOnClickListener(this);

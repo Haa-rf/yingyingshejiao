@@ -1,11 +1,23 @@
 [
     {
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\7f97f40557e5169e7f4ce373b375b640\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
         "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_text_dark.xml",
         "source": "C:\\Users\\chen\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\b8ea0f2fa155cac94ba8245f58801cb4\\res\\color\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_tint.xml",
         "source": "C:\\Users\\chen\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\b8ea0f2fa155cac94ba8245f58801cb4\\res\\color\\common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_tint.xml",
+        "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\7f97f40557e5169e7f4ce373b375b640\\res\\color\\common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\7f97f40557e5169e7f4ce373b375b640\\res\\color\\common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\common_google_signin_btn_text_light.xml",

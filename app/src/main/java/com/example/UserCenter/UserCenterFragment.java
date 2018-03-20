@@ -9,10 +9,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.R;
+import com.hyphenate.chat.EMClient;
 
 /**
  *
@@ -24,6 +26,10 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
     private RelativeLayout Title_layout;
     private TextView Title_text;
     private Intent intent;
+    private ImageView head;
+    private TextView nickname;
+    private TextView username;
+
 
     public UserCenterFragment() {
         // Required empty public constructor
@@ -38,11 +44,16 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
         setting_layout = (RelativeLayout)view.findViewById(R.id.setting);
         Title_layout = (RelativeLayout)view.findViewById(R.id.userTitle);
         Title_text = (TextView)view.findViewById(R.id.userTitleText);
+        head = (ImageView)view.findViewById(R.id.imageButton);
+        nickname = (TextView)view.findViewById(R.id.nickname);
+        username = (TextView)view.findViewById(R.id.userID);
         /**
          * 还需要从数据库获取用户的信息并显示在界面上
          */
         Title_text.setText("个人信息");
-
+        head.setImageResource(R.drawable.head_image_m1);
+        nickname.setText("嘤嘤");
+        username.setText(EMClient.getInstance().getCurrentUser());
         //添加按钮点击事件
         userInfo_layout.setOnClickListener(this);
         setting_layout.setOnClickListener(this);

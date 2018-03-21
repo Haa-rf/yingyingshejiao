@@ -56,7 +56,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignStart="@+id/userID"
                 android:layout_marginTop="54dp"
-                android:text="NickName:  嘤嘤" />
+                android:text="NickName:  " />
 
             <TextView
                 android:id="@+id/userID"

@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,30 +57,35 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
         Title_layout = (RelativeLayout)view.findViewById(R.id.userTitle);
         Title_text = (TextView)view.findViewById(R.id.userTitleText);
         head = (ImageView)view.findViewById(R.id.imageButton);
-//        nickname = (TextView)view.findViewById(R.id.nickname);
-//        username = (TextView)view.findViewById(R.id.userID);
-//        sex =(TextView)view.findViewById(R.id.sex);
-//        /**
-//         * 还需要从数据库获取用户的信息并显示在界面上
-//         */
-//        user_name = EMClient.getInstance().getCurrentUser();
-//        username.setText("UserName:  "+user_name);
-//        Me = DBMUtil.query(getContext(),user_name);
-//        if (Me == null){
-//            Me.setUser_name(user_name);
-//            Me.setUser_nickname("嘤嘤");
-//            Me.setUser_image(Integer.toString(R.drawable.head_image_m1));
-//            head.setImageResource(R.drawable.head_image_m1);
-//            nickname.setText("NickName:  "+"嘤嘤");
-//        }else {
-//            nick_name = Me.getUser_nickname();
-//            user_image = Me.getUser_image();
-//            user_sex = Me.getUser_sex();
-//            user_sign = Me.getUser_sign();
-//            head.setImageResource(Integer.parseInt(user_image));
-//            nickname.setText("NickName:  "+nick_name);
-//
-//        }
+        nickname = (TextView)view.findViewById(R.id.nickname);
+        username = (TextView)view.findViewById(R.id.userID);
+        sex =(TextView)view.findViewById(R.id.sex);
+        sign=(TextView)view.findViewById(R.id.sign);
+        /**
+         * 还需要从数据库获取用户的信息并显示在界面上
+         */
+
+        user_name = EMClient.getInstance().getCurrentUser();
+        username.setText("UserName:  "+user_name);
+        Me = DBMUtil.query(getContext(),user_name);
+        if (Me == null){
+            Me = new User();
+            Me.setUser_name(user_name);
+            Me.setUser_nickname("嘤嘤");
+            Me.setUser_image(Integer.toString(R.drawable.head_image_m1));
+            head.setImageResource(R.drawable.head_image_m1);
+            DBMUtil.addUser(getContext(),Me);
+            nickname.setText("NickName:  "+"嘤嘤");
+        }else {
+            nick_name = Me.getUser_nickname();
+            user_image = Me.getUser_image();
+            user_sex = Me.getUser_sex();
+            user_sign = Me.getUser_sign();
+            head.setImageResource(Integer.parseInt(user_image));
+            nickname.setText("NickName:  "+nick_name);
+            sex.setText("Sex            :  "+user_sex);
+            sign.setText(user_sign);
+        }
         Title_text.setText("个人信息");
 
         //添加按钮点击事件
@@ -113,5 +119,43 @@ public class UserCenterFragment extends Fragment implements View.OnClickListener
         }
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        userInfo_layout = (RelativeLayout)view.findViewById(R.id.userInfo);
+        setting_layout = (RelativeLayout)view.findViewById(R.id.setting);
+        Title_layout = (RelativeLayout)view.findViewById(R.id.userTitle);
+        Title_text = (TextView)view.findViewById(R.id.userTitleText);
+        head = (ImageView)view.findViewById(R.id.imageButton);
+        nickname = (TextView)view.findViewById(R.id.nickname);
+        username = (TextView)view.findViewById(R.id.userID);
+        sex =(TextView)view.findViewById(R.id.sex);
+        sign=(TextView)view.findViewById(R.id.sign);
+        /**
+         * 还需要从数据库获取用户的信息并显示在界面上
+         */
 
+        user_name = EMClient.getInstance().getCurrentUser();
+        username.setText("UserName:  "+user_name);
+        Me = DBMUtil.query(getContext(),user_name);
+        if (Me == null){
+            Me = new User();
+            Me.setUser_name(user_name);
+            Me.setUser_nickname("嘤嘤");
+            Me.setUser_image(Integer.toString(R.drawable.head_image_m1));
+            head.setImageResource(R.drawable.head_image_m1);
+            DBMUtil.addUser(getContext(),Me);
+            nickname.setText("NickName:  "+"嘤嘤");
+        }else {
+            nick_name = Me.getUser_nickname();
+            user_image = Me.getUser_image();
+            user_sex = Me.getUser_sex();
+            user_sign = Me.getUser_sign();
+            head.setImageResource(Integer.parseInt(user_image));
+            nickname.setText("NickName:  "+nick_name);
+            sex.setText("Sex            :  "+user_sex);
+            sign.setText(user_sign);
+        }
+        Title_text.setText("个人信息");
+    }
 }

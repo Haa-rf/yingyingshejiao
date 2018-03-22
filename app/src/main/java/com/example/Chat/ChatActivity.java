@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.R;
+import com.hyphenate.easeui.EaseConstant;
 
 /**
  * Created by apple on 18/03/2018.
@@ -16,6 +17,7 @@ public class ChatActivity extends AppCompatActivity{
         setContentView(R.layout.activity_chat);
         Intent intent=getIntent();
         ChatFragment chatFragment=new ChatFragment();
+
         chatFragment.setArguments(intent.getExtras());
         getSupportFragmentManager().beginTransaction().add(R.id.layout_container,chatFragment).commit();
 

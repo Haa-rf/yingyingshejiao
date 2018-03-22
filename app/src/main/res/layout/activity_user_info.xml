@@ -22,6 +22,17 @@
             android:text="Me"
             android:textColor="@color/btn_white_normal"
             android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+            android:text="finish" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -36,16 +47,16 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="77dp"
-            app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+            />
 
         <TextView
             android:id="@+id/Text_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/Text_id"
-            android:layout_alignStart="@+id/Text_id"
+            android:layout_alignLeft="@+id/Text_sex"
+            android:layout_alignStart="@+id/Text_sex"
             android:layout_below="@+id/image_user"
-            android:layout_marginTop="39dp"
+            android:layout_marginTop="28dp"
             android:text="name：" />
 
         <EditText
@@ -84,34 +95,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/id_editText"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="21dp"
             android:layout_toLeftOf="@+id/image_user"
             android:layout_toStartOf="@+id/image_user"
             android:text="sex：" />
 
-        <CheckBox
-            android:id="@+id/sex_checkBox1"
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/Text_sex"
             android:layout_alignBottom="@+id/Text_sex"
             android:layout_alignLeft="@+id/id_editText"
             android:layout_alignStart="@+id/id_editText"
-            android:layout_marginLeft="18dp"
-            android:layout_marginStart="18dp"
-            android:text="男" />
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/sex_checkBox2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/Text_sex"
-            android:layout_alignBottom="@+id/Text_sex"
-            android:layout_alignEnd="@+id/id_editText"
-            android:layout_alignRight="@+id/id_editText"
-            android:layout_marginEnd="17dp"
-            android:layout_marginRight="17dp"
-            android:text="女" />
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/radioGroup"
+                android:layout_alignStart="@+id/radioGroup"
+                android:layout_alignTop="@+id/radioGroup"
+                android:text="男孩子"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="女孩子"
+                android:textSize="12sp" />
+        </RadioGroup>
 
         <EditText
             android:id="@+id/sign_editText"

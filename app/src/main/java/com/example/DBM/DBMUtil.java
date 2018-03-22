@@ -7,7 +7,7 @@ import android.drm.DrmStore;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.example.User.User;
+import com.example.JavaBean.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -18,8 +18,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import static com.example.DBM.DBM.FriendDBTable;
+import static com.example.DBM.DBM.RelativeDBTable;
 import static com.example.DBM.DBM.RegisterDBTable;
+import static com.example.DBM.DBM.ChatDBTable;
+import static com.example.DBM.DBM.GroupDBTable;
+//import static com.example.DBM.DBM.ImageDBTable;
 import static java.util.Arrays.asList;
 
 /**
@@ -30,36 +33,20 @@ public class DBMUtil {
     private static SQLiteDatabase db;
     private static String TAG = "DBMUtilTAG";
     private static int max_friend = 150;
+    private static DBM openHelper;
 
     //Private
     //获取数据库里条目个数
-    private static int count(Context context, String dbName){
+    private static int count(Context context, String dbName) {
         DBMOperate(context);
-        Cursor cursor=db.rawQuery("select count(*) from "+dbName, null);
+        Cursor cursor = db.rawQuery("select count(*) from " + dbName, null);
         int i = 0;
-        while(cursor.moveToFirst()){
-            i=cursor.getInt(0);
+        while (cursor.moveToFirst()) {
+            i = cursor.getInt(0);
             break;
         }
         cursor.close();
-        if(dbName.equals(FriendDBTable)){return i/2;}
         return i;
-    }
-
-    //获取最大id
-    private static int getMaxId(Context context, String dbName){
-        DBMOperate(context);
-        int maxId=-1;
-        Cursor cursor=db.rawQuery("select max(id) AS maxId from "+dbName, null);
-        if(0 == cursor.getCount()) {
-            return 0;
-        }
-        else {
-            if(cursor.moveToFirst()) {
-                maxId = cursor.getInt(cursor.getColumnIndex("maxId"));
-            }
-                return maxId;
-        }
     }
 
     //当前时间
@@ -69,44 +56,45 @@ public class DBMUtil {
         return rt;
     }
 
-    //加密部分，提供可选加密手段
-    private static String Encryption(String pwd){
-        // Hash a password for the first time
-        //String hashed = BCrypt.hashpw(pwd, BCrypt.gensalt());
-
-        // gensalt's log_rounds parameter determines the complexity
-        // the work factor is 2**log_rounds, and the default is 10
-        String hashed2 = BCrypt.hashpw(pwd, BCrypt.gensalt(12));
-        return hashed2;
-    }
-
-    private static boolean Checkpwd(String pwd, String hashed){
-        return BCrypt.checkpw(pwd, hashed);
-    }
 
     private static void DBMOperate(Context context){
-        DBM openHelper = DBM.getDBInstance(context);
+        openHelper = DBM.getDBInstance(context);
         db= openHelper.getWritableDatabase();
     }
 
-    //判断好友关系是否已经存在
-    private static boolean FriendAlreadyAdded(int id, int id_f){
+    //判断好友关系是否已经存在（是否在一个组里）
+    private static boolean FriendAlreadyAdded(String user1, String user2){
         //在此之前按理说已经初始化数据库，如果出错请适当修改
-        Cursor cursor=db.rawQuery("select * from "+FriendDBTable+" where id=?", new String[]{String.valueOf(id)});
-        while(cursor.moveToFirst()){
-            if(id_f == cursor.getInt(cursor.getColumnIndex("id"))){
-                cursor.close();
-                return true;
+        Cursor cursor0=db.rawQuery("select * from "+RelativeDBTable+" where user_friendname=?", new String[]{user1});
+        Cursor cursor1=db.rawQuery("select * from "+RelativeDBTable+" where user_friendname=?", new String[]{user2});
+        StringBuffer b0 = new StringBuffer();
+        StringBuffer b1 = new StringBuffer();
+        while (cursor0.moveToFirst()){
+            b0.append(cursor0.getString(cursor0.getColumnIndex("user_friendgroup")));
+            b0.append(",");
+        }
+        while (cursor1.moveToFirst()){
+            b1.append(cursor1.getString(cursor1.getColumnIndex("user_friendgroup")));
+            b1.append(",");
+        }
+        String returnBuffer0 = b0.toString();
+        List<String> returnList0 = asList(returnBuffer0.split(","));
+        String returnBuffer1 = b1.toString();
+        List<String> returnList1 = asList(returnBuffer1.split(","));
+        for(String att0: returnList0){
+            for(String att1: returnList1){
+                if(att0.equals(att1)){
+                    return true;
+                }
             }
         }
-        cursor.close();
         return false;
     }
     //判断用户名是否已经存在
     private static boolean UserAlreadyExisted(String username){
-        Cursor cursor=db.rawQuery("select * from "+RegisterDBTable+" where username=?", new String[]{username});
+        Cursor cursor=db.rawQuery("select * from "+RegisterDBTable+" where user_name=?", new String[]{username});
         while(cursor.moveToFirst()){
-            if(username.equals(cursor.getString(cursor.getColumnIndex("username")))){
+            if(username.equals(cursor.getString(cursor.getColumnIndex("user_name")))){
                 cursor.close();
                 return true;
             }
@@ -117,103 +105,74 @@ public class DBMUtil {
 
     //Public接口
     //增加特定账户，返回当前账户的id
-    public static int addUser(Context context, User user){
+    public static void addUser(Context context, User user){
         DBMOperate(context);
-        String date = CurrentTime();
-        if(!UserAlreadyExisted(user.getUsername())) {
-            db.execSQL("insert into "+RegisterDBTable+" (id, username, pwd, datetime) values(?,?,?,?)",
-                    new Object[]{String.valueOf(getMaxId(context, RegisterDBTable) + 1), user.getUsername(), user.getPwd(), date});
-            return getMaxId(context, RegisterDBTable) - 1;
+        if(!UserAlreadyExisted(user.getUser_name())) {
+            db.execSQL("insert into "+RegisterDBTable+" (user_name, user_nickname, user_image, user_sex, user_sign) values(?,?,?,?,?)",
+                    new String[]{user.getUser_name(), user.getUser_nickname(), user.getUser_image(), user.getUser_sex(), user.getUser_sign()});
         }
         else{
             Log.i(TAG, "Username already exists");
-            return -1;
         }
     }
 
-    //增加朋友关系，一次增加双向，占用更大磁盘空间但是显著降低运行时间
-    public static void addFriend(Context context, User user1, User user2){
+    //增加朋友关系
+    public static void addFriend(Context context, User user, User_Relative relative){
         DBMOperate(context);
-        String date = CurrentTime();
-        if(FriendAlreadyAdded(user1.getId(), user2.getId())){
-            Log.i(TAG, "Friends already in database.");
-        }
-        else{
+        //if(FriendAlreadyAdded(user.getUser_name(), relative.getUser_friendname())){
+          //  Log.i(TAG, "Friends already in database.");
+        //}
+        //else{
             db.beginTransaction();
             try {
-                db.execSQL("insert into " + FriendDBTable + " (id, id_f, datetime) values(?,?,?)",
-                        new Object[]{String.valueOf(user1.getId()), String.valueOf(user2.getId()), date});
-                db.execSQL("insert into " + FriendDBTable + " (id, id_f, datetime) values(?,?,?)",
-                        new Object[]{String.valueOf(user2.getId()), String.valueOf(user1.getId()), date});
+                db.execSQL("insert into " + RelativeDBTable + " (user_friendname, user_friendgroup) values(?,?)"
+                        , new String[]{relative.getUser_friendname(), relative.getUser_friendgroup()});
                 db.setTransactionSuccessful();
             }finally {
                 db.endTransaction();
             }
-        }
+        //}
     }
 
-    public static void deleteFriend(Context context, User user1, User user2){
+    public static void deleteFriend(Context context, User_Relative relative) {
         DBMOperate(context);
-        if(!FriendAlreadyAdded(user1.getId(),user2.getId())){
-            Log.i(TAG, "Friends relation not exists.");
-        }
-        else{
-            db.beginTransaction();
-            try{
-                db.execSQL("delete from "+FriendDBTable+" where id=? and id_f=",
-                        new Object[]{String.valueOf(user1.getId()), String.valueOf(user2.getId())});
-                db.execSQL("delete from "+FriendDBTable+" where id=? and id_f=",
-                        new Object[]{String.valueOf(user2.getId()), String.valueOf(user1.getId())});
-                db.setTransactionSuccessful();
-            }finally {
-                db.endTransaction();
-            }
+        db.beginTransaction();
+        try {
+            db.execSQL("delete from " + RelativeDBTable + " where user_friendname=? and user_friendgroup=?"
+                    , new String[]{relative.getUser_friendname(), relative.getUser_friendgroup()});
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
         }
     }
 
-    //返回对应id下账户的好友名称
-    public static List<String> findAllFriend(Context context, int id){
+    //返回对应group id下的所有好友名称
+    public static List<String> findAllFriend(Context context, User_Relative user_relative){
         DBMOperate(context);
         StringBuffer FriendListA=new StringBuffer();
-        Cursor cursor=db.rawQuery("select * from "+FriendDBTable+" where id=?", new String[]{String.valueOf(id)});
-        while(cursor.moveToFirst()){
-            int id_f=cursor.getInt(cursor.getColumnIndex("id_f"));
-            Cursor cursor1=db.rawQuery("select username from "+RegisterDBTable+" where id=?", new String[]{String.valueOf(id_f)});
-            while(cursor1.moveToFirst()){
-                FriendListA.append(cursor1.getString(cursor1.getColumnIndex("username")));
-                FriendListA.append(",");
-            }
+        Cursor cursor=db.rawQuery("select * from "+RelativeDBTable+" where user_friendgroup=?", new String[]{user_relative.getUser_friendgroup()});
+        while(cursor.moveToFirst()) {
+            FriendListA.append(cursor.getString(cursor.getColumnIndex("user_friendname")));
+            FriendListA.append(",");
         }
         String returnBuffer = FriendListA.toString();
         List<String> returnList = asList(returnBuffer.split(","));
         return returnList;
     }
 
-    //用户查询
-    public static User query(Context context,int id){
-        DBMOperate(context);
-        Cursor cursor=db.rawQuery("select * from "+RegisterDBTable+" where id=?", new String[]{String.valueOf(id)});
-        while(cursor.moveToFirst()){
-            String name=cursor.getString(cursor.getColumnIndex("username"));
-            String pwd=cursor.getString(cursor.getColumnIndex("pwd"));
-            User rtUser = new User();
-            rtUser.setUsername(name);
-            rtUser.setPwd(pwd);
-            return rtUser;
-        }
-        cursor.close();
-        return null;
-    }
 
-    public static User query(Context context, String user){
+
+    //用户查询
+    public static User query(Context context,String user_name){
         DBMOperate(context);
-        Cursor cursor=db.rawQuery("select * from "+RegisterDBTable+" where username=?", new String[]{user});
+        Cursor cursor=db.rawQuery("select * from "+RegisterDBTable+" where user_name=?", new String[]{user_name});
         while(cursor.moveToFirst()){
-            int id=cursor.getInt(cursor.getColumnIndex("id"));
-            String pwd=cursor.getString(cursor.getColumnIndex("pwd"));
-            User rtUser = new User();
-            rtUser.setId(id);
-            rtUser.setPwd(pwd);
+            String user_name0=cursor.getString(cursor.getColumnIndex("user_name"));
+            String user_nickname0=cursor.getString(cursor.getColumnIndex("user_nickname"));
+            String user_image0=cursor.getString(cursor.getColumnIndex("user_image"));
+            String user_sex0=cursor.getString(cursor.getColumnIndex("user_sex"));
+            String user_sign0=cursor.getString(cursor.getColumnIndex("user_sign"));
+            User rtUser = new User(user_name0, user_nickname0, user_image0, user_sex0, user_sign0);
             return rtUser;
         }
         cursor.close();
@@ -221,13 +180,12 @@ public class DBMUtil {
     }
 
     //账户修改
-    public static void update(Context context, User user, int id){
+    public static void update(Context context, User user){
         DBMOperate(context);
-        String date = CurrentTime();
         db.beginTransaction();
         try {
-            db.execSQL("update "+RegisterDBTable+" set username=?,pwd=?,datetime=? where id=?",
-                    new Object[]{user.getUsername(), user.getPwd(), date, String.valueOf(id)});
+            db.execSQL("update "+RegisterDBTable+" set user_name=?,user_nickname=?,user_image=?,user_sex=?,user_sign=? where user_name=?",
+                    new String[]{user.getUser_name(), user.getUser_nickname(), user.getUser_image(), user.getUser_sex(), user.getUser_sign(), user.getUser_name()});
             db.setTransactionSuccessful();
         }finally {
             db.endTransaction();
@@ -235,8 +193,8 @@ public class DBMUtil {
     }
 
     //账户删除
-    public static void delete(Context context,int id){
+    public static void delete(Context context,String user_name){
         DBMOperate(context);
-        db.execSQL("delete from "+RegisterDBTable+" where id=?",new Object[]{String.valueOf(id)});
+        db.execSQL("delete from "+RegisterDBTable+" where user_name=?",new String[]{user_name});
     }
 }

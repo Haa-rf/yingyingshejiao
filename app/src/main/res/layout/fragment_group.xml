@@ -5,11 +5,27 @@
     tools:context="com.example.Contacts.GroupFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="#20000000"
-        android:id="@+id/groupList">
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="创建群"
+            android:textStyle="bold"
+            android:textColor="@color/colorActionBar"
+            android:textSize="25sp"
+            android:id="@+id/creatGroup"
+            android:background="#20000000"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:id="@+id/groupList">
+        </ListView>
+    </LinearLayout>
 
-    </ListView>
+
 </FrameLayout>

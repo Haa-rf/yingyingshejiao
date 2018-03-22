@@ -16,9 +16,6 @@ import com.hyphenate.chat.EMClient;
  */
 public class CallActivity extends MainActivity {
 
-    // 呼叫方名字
-    protected String chatId;
-
     // 震动器
     private Vibrator vibrator;
 
@@ -43,6 +40,7 @@ public class CallActivity extends MainActivity {
         vibrator = (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
 
         if (CallManager.getInstance().getCallState() == CallManager.CallState.DISCONNECTED) {
+            CallManager.getInstance().init(activity);
             // 收到呼叫或者呼叫对方时初始化通话状态监听
             CallManager.getInstance().setCallState(CallManager.CallState.CONNECTING);
             CallManager.getInstance().registerCallStateListener();
@@ -97,7 +95,7 @@ public class CallActivity extends MainActivity {
      * 销毁界面时做一些自己的操作
      */
     protected void onFinish() {
-        this.finish();
+        super.finish();
     }
 
     @Override
@@ -113,20 +111,20 @@ public class CallActivity extends MainActivity {
     /**
      * 通话界面拦截 Back 按键，不能返回
      */
-    @Override public void onBackPressed() {
-        //super.onBackPressed();
-        CallManager.getInstance().addFloatWindow();
-        onFinish();
-    }
+//    @Override public void onBackPressed() {
+//        //super.onBackPressed();
+//        CallManager.getInstance().addFloatWindow();
+//        onFinish();
+//    }
 
     /**
-     * 监听通话界面是否隐藏，处理悬浮窗
+     * 监听通话界面是否a隐藏，处理悬浮窗
      */
-    @Override protected void onUserLeaveHint() {
-        //super.onUserLeaveHint();
-        CallManager.getInstance().addFloatWindow();
-        onFinish();
-    }
+//    @Override protected void onUserLeaveHint() {
+//        //super.onUserLeaveHint();
+//        CallManager.getInstance().addFloatWindow();
+//        onFinish();
+//    }
 
     @Override protected void onResume() {
         super.onResume();

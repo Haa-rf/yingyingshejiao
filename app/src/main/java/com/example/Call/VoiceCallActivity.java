@@ -1,8 +1,10 @@
 package com.example.Call;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.speech.tts.Voice;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -10,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.Chat.ChatFragment;
 import com.example.R;
 import com.hyphenate.chat.EMCallStateChangeListener;
 import com.hyphenate.chat.EMClient;
@@ -25,25 +28,41 @@ import org.greenrobot.eventbus.ThreadMode;
  */
 public class VoiceCallActivity extends CallActivity implements View.OnClickListener {
 
-
-
-    ImageView backgroundView=findViewById(R.id.img_call_background);
-    TextView callStateView=findViewById(R.id.text_call_state);
-    TextView callTimeView=findViewById(R.id.text_call_time);
-    ImageButton exitFullScreenBtn=findViewById(R.id.btn_exit_full_screen);
-    ImageButton micSwitch=findViewById(R.id.btn_mic_switch);
-    ImageButton speakerSwitch=findViewById(R.id.btn_speaker_switch);
-    ImageButton recordSwitch=findViewById(R.id.btn_record_switch);
-    FloatingActionButton rejectCallFab=findViewById(R.id.fab_reject_call);
-    FloatingActionButton endCallFab=findViewById(R.id.fab_end_call);
-    FloatingActionButton answerCallFab=findViewById(R.id.fab_answer_call);
-
+    private ImageView backgroundView;
+    private TextView callStateView;
+    private TextView callTimeView;
+    private ImageButton exitFullScreenBtn;
+    private ImageButton micSwitch;
+    private ImageButton speakerSwitch;
+    private ImageButton recordSwitch;
+    private FloatingActionButton rejectCallFab;
+    private FloatingActionButton endCallFab;
+    private FloatingActionButton answerCallFab;
 
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_call);
+        initView();
+    }
 
+    /**
+     * 重载父类方法,实现一些当前通话的操作，
+     */
+    @Override protected void initView() {
+
+        super.initView();
+
+        backgroundView=(ImageView)findViewById(R.id.img_call_background);
+        callStateView=(TextView)findViewById(R.id.text_call_state);
+        callTimeView=(TextView)findViewById(R.id.text_call_time);
+        exitFullScreenBtn=(ImageButton)findViewById(R.id.btn_exit_full_screen);
+        micSwitch=(ImageButton)findViewById(R.id.btn_mic_switch);
+        speakerSwitch=(ImageButton)findViewById(R.id.btn_speaker_switch);
+        recordSwitch=(ImageButton)findViewById(R.id.btn_record_switch);
+        rejectCallFab=(FloatingActionButton)findViewById(R.id.fab_reject_call);
+        endCallFab=(FloatingActionButton)findViewById(R.id.fab_end_call);
+        answerCallFab=(FloatingActionButton)findViewById(R.id.fab_answer_call);
 
         exitFullScreenBtn.setOnClickListener(VoiceCallActivity.this);
         micSwitch.setOnClickListener(VoiceCallActivity.this);
@@ -52,14 +71,6 @@ public class VoiceCallActivity extends CallActivity implements View.OnClickListe
         endCallFab.setOnClickListener(VoiceCallActivity.this);
         answerCallFab.setOnClickListener(VoiceCallActivity.this);
 
-        initView();
-    }
-
-    /**
-     * 重载父类方法,实现一些当前通话的操作，
-     */
-    @Override protected void initView() {
-        super.initView();
         if (CallManager.getInstance().isInComingCall()) {
             endCallFab.setVisibility(View.GONE);
             answerCallFab.setVisibility(View.VISIBLE);
@@ -91,10 +102,10 @@ public class VoiceCallActivity extends CallActivity implements View.OnClickListe
      */
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_exit_full_screen:
+            /*case R.id.btn_exit_full_screen:
                 // 最小化通话界面
                 exitFullScreen();
-                break;
+                break;*/
             case R.id.btn_mic_switch:
                 // 麦克风开关
                 onMicrophone();
@@ -304,11 +315,15 @@ public class VoiceCallActivity extends CallActivity implements View.OnClickListe
                 backgroundView.setDrawingCacheEnabled(true);
                 Bitmap bitmap = backgroundView.getDrawingCache();
                 backgroundView.setImageBitmap(VMUtil.stackBlurBitmap(bitmap, 10, 10, false));
-                //backgroundView.setImageBitmap(VMBitmapUtil.rsBlurBitmp(activity, bitmap, 10, 10));
                 backgroundView.setDrawingCacheEnabled(false);
                 VMLog.i("blur image end!");
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }

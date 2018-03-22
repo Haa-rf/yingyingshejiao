@@ -11,35 +11,27 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.Activity.MainActivity;
 import com.example.R;
+import com.hyphenate.chat.EMClient;
 import com.hyphenate.easeui.domain.EaseUser;
 import com.hyphenate.easeui.widget.EaseImageView;
+import com.hyphenate.exceptions.HyphenateException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link GroupContactFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link GroupContactFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+
 public class GroupContactFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     private static final String GROUP_TEXT = "group_text";//分组Map的key
     private static final String CONTACT_TEXT="contact_text";//联系人备注的Map的key
-    private static final String CONTACT_TEXT2 = "child_text2";//小组成员Map的第二个key
-    private List<EaseUser> AllContact = new ArrayList<EaseUser>();
     private List<Map<String,String>> groupData = new ArrayList<Map<String, String>>();
+    private List<String> MyFriends;
     private List<ArrayList<Map<String,String>>> ContactData = new ArrayList<ArrayList<Map<String, String>>>();
     private ExpandableListView ExList;
     private ExAdapter adapter;
@@ -56,23 +48,46 @@ public class GroupContactFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_group_contact, container, false);
         // Inflate the layout for this fragment
-        for(int i=1;i<5;i++) {
-            //添加5个分组
-            Map<String, String> curGroupMap = new HashMap<String, String>();
-            groupData.add(curGroupMap);
-            curGroupMap.put(GROUP_TEXT, "第" + i + "大组");
-            //每个分组添加5个联系人
-            List<Map<String, String>> children = new ArrayList<Map<String, String>>();
-            for (int j = 1; j < 5; j++) {
-                AllContact.add(new EaseUser("dontact" + j));
-                Map<String, String> curChildMap = new HashMap<String, String>();
-                children.add(curChildMap);
-                curChildMap.put(CONTACT_TEXT, AllContact.get(j-1).getUsername().toString());
-                curChildMap.put(CONTACT_TEXT2, "第" + j + "小组签名");
-            }
-            ContactData.add((ArrayList<Map<String, String>>) children);
-        }
         //设置各种适配器
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getContact();
+            }
+        });
+
+        if(MyFriends!=null&&MyFriends.size()!=0){
+            List<Map<String, String>> Contact = new ArrayList<Map<String, String>>();
+            for(int i=0;i<MyFriends.size();i++){
+                Map<String,String> curContactData=new HashMap<String, String>();
+                curContactData.put(CONTACT_TEXT,MyFriends.get(i).toString());
+                Contact.add(curContactData);
+            }
+            Map<String,String> Self=new HashMap<String, String>();
+            Self.put(CONTACT_TEXT,"我");
+            Contact.add(Self);
+            ContactData.add((ArrayList<Map<String, String>>)Contact);
+        }
+
+
+
+       /* for(int i=0;i<5;i++){
+            Map<String, String> curGroupMap = new HashMap<String, String>();
+            curGroupMap.put(GROUP_TEXT,"第"+i+"组");
+            List<Map<String, String>> Contact = new ArrayList<Map<String, String>>();
+            for (int j=0;j<5;j++){
+                Map<String, String> curContactMap = new HashMap<String, String>();
+                curContactMap.put(CONTACT_TEXT,"联系人"+j);
+                Contact.add(curContactMap);
+            }
+            ContactData.add((ArrayList<Map<String, String>>)Contact);
+            groupData.add(curGroupMap);
+        }*/
+        Map<String, String> curGroupMap = new HashMap<String, String>();
+        curGroupMap.put(GROUP_TEXT,"所有人");
+        groupData.add(curGroupMap);
+
+
         adapter = new ExAdapter(getActivity());
         ExList=view.findViewById(R.id.GroupContact);
         ExList.setAdapter(adapter);
@@ -161,6 +176,14 @@ public class GroupContactFragment extends Fragment {
             return true;
         }
 
+    }
+
+    public void getContact(){
+        try {
+            MyFriends= EMClient.getInstance().contactManager().getAllContactsFromServer();
+        } catch (HyphenateException e) {
+            e.printStackTrace();
+        }
     }
 
 }

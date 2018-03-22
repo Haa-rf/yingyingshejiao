@@ -1,9 +1,11 @@
 package com.example.Activity;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
@@ -22,10 +24,14 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
 import com.example.Contacts.ContactsFragment;
-import com.example.Conversation.ConversationListFragment;
+import com.example.Contacts.MyBroadcast;
+import com.example.Contacts.MyContactListener;
+import com.example.Conversation.ConversationFragment;
 import com.example.R;
 import com.example.UserCenter.UserCenterFragment;
-import com.hyphenate.easeui.ui.EaseConversationListFragment;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.easeui.domain.EaseUser;
+import com.hyphenate.exceptions.HyphenateException;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
@@ -47,10 +53,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private List<Fragment> mList; //ViewPager的数据源
     private ShapeBadgeItem mShapeBadgeItem;//添加角标
     private TextBadgeItem mTextBadgeItem;
-
     private Context context;
     private boolean ckeck;
-
+//    private List<String> Myuser;
+    private IntentFilter intentFilter;
+    private MyBroadcast FriendsChangeReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +71,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                     Intent intent = new Intent();
                     intent.setAction(android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
                     intent.setData(Uri.parse("package:" + packageName));
+                    EMClient.getInstance().contactManager().setContactListener(new MyContactListener(MainActivity.this));
+                   // EMChat.getInstance().setAppInited();
+
+
                     startActivity(intent);
                 } catch (Exception e) {
                 }
@@ -83,6 +94,25 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 //            startActivity(new Intent(this, LoginActivity.class));
 //            return;
 //        }
+
+
+        /*new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    MyFriends= EMClient.getInstance().contactManager().getAllContactsFromServer();
+                } catch (HyphenateException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();*/
+        /*new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getContact();
+            }
+        }).start();*/
+
         setContentView(R.layout.activity_main);
         // runtime permission for android 6.0, just require all permissions here for simple
         requestPermissions();
@@ -95,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     //初始化ViewPager
     private void initViewPager() {
         mList = new ArrayList<>();
-        mList.add(new ConversationListFragment());
+        mList.add(new ConversationFragment());
         mList.add(new ContactsFragment());
         mList.add(new UserCenterFragment());
 
@@ -279,5 +309,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    /*public void getContact(){
+                try {
+                    Myuser= EMClient.getInstance().contactManager().getAllContactsFromServer();
+                } catch (HyphenateException e) {
+                    e.printStackTrace();
+                }
+            }*/
+
 
 }

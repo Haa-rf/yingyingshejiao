@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/colorActionBar"
+            android:textStyle="bold"
+            android:id="@+id/Groupname"
+            android:text="群名字：" />
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/Groupname"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="@layout/edit_bg"
+            android:id="@+id/editGroupName"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorActionBar"
+            android:id="@+id/cancel"
+            android:text="取消"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:id="@+id/Groupdesc"
+            android:textColor="@color/colorActionBar"
+            android:text="群说明：" />
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@layout/edit_bg"
+            android:layout_toRightOf="@+id/Groupdesc"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:id="@+id/editGroupDesc"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reason"
+        android:background="@layout/edit_bg"
+        android:inputType="textMultiLine"
+        android:maxLength="100"
+        android:lines="7"
+        android:padding="10dp"
+        android:hint="邀请成员加入的理由" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:id="@+id/Create"
+        android:text="确认创建"
+        android:textColor="@color/colorActionBar"/>
+
+</LinearLayout>

@@ -10,6 +10,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.R;
+import com.hyphenate.chat.EMChatManager;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMContactManager;
+import com.hyphenate.chat.adapter.EMAChatManager;
+import com.hyphenate.easeui.domain.EaseUser;
+import com.hyphenate.easeui.ui.EaseContactListFragment;
+import com.hyphenate.exceptions.HyphenateException;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ContactsFragment extends Fragment {
     private Button contactButton;
@@ -30,7 +41,10 @@ public class ContactsFragment extends Fragment {
         FragmentManager manager1 = getActivity().getSupportFragmentManager();
         addFragment("Contact");
         //点击对应按钮更换对应fragment
+
         contactButton=view.findViewById(R.id.Contact);
+        groupButton=view.findViewById(R.id.Group);
+        addButton=view.findViewById(R.id.AddButton);
         contactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,7 +52,7 @@ public class ContactsFragment extends Fragment {
             }
         });
 
-        groupButton=view.findViewById(R.id.Group);
+
         groupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +60,7 @@ public class ContactsFragment extends Fragment {
             }
         });
 
-        addButton=view.findViewById(R.id.AddButton);
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +73,6 @@ public class ContactsFragment extends Fragment {
 
 
     private void addFragment(String fTag) {
-
         FragmentManager manager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         //判断这个标签是否存在Fragment对象,如果存在则返回，不存在返回null
@@ -70,7 +83,15 @@ public class ContactsFragment extends Fragment {
 
             //根据RaioButton点击的Button传入的tag，实例化，添加显示不同的Fragment
             if (fTag.equals("Contact")) {
-                fragment = new GroupContactFragment();
+                final EaseContactListFragment fragment1 = new EaseContactListFragment();
+                new Thread() {//需要在子线程中调用
+                    @Override
+                    public void run() {
+                        //需要设置联系人列表才能启动fragment
+                        fragment1.setContactsMap(getContact());
+                    }
+                }.start();
+                fragment=fragment1;
             } else if (fTag.equals("Group")) {
                 fragment = new GroupFragment();
             } else if (fTag.equals("Search")) {
@@ -87,8 +108,8 @@ public class ContactsFragment extends Fragment {
         } else {
             //如果添加的Fragment已经存在，则将隐藏掉的Fragment再次显示,其余当前
             transaction = manager.beginTransaction();
-            transaction.show(fragment);
             transaction.hide(currentFragment);
+            transaction.show(fragment);
             //更新可见
             currentFragment = fragment;
             transaction.commit();
@@ -97,6 +118,21 @@ public class ContactsFragment extends Fragment {
         }
 
 
+    }
+
+    private Map<String, EaseUser> getContact() {
+        Map<String, EaseUser> map = new HashMap<>();
+        try {
+            List<String> userNames =EMClient.getInstance().contactManager().getAllContactsFromServer();
+//            KLog.e("......有几个好友:" + userNames.size());
+            for (String userId : userNames) {
+//                KLog.e("好友列表中有 : " + userId);
+                map.put(userId, new EaseUser(userId));
+            }
+        } catch (HyphenateException e) {
+            e.printStackTrace();
+        }
+        return map;
     }
 
 }

@@ -21,6 +21,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -62,12 +63,20 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".Contacts.MyBroadcast"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.FRIEND_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+
         <!-- activity注册 -->
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".RegisterAndLogin.LoginActivity" />
         <activity android:name=".RegisterAndLogin.RegisterActivity" />
-        <activity android:name=".Chat.ChatTestActivity"></activity>
-        <activity android:name=".Chat.ChatActivity"></activity>
+        <activity android:name=".Chat.ChatTestActivity" />
+        <activity android:name=".Chat.ChatActivity" />
         <activity android:name=".Activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -77,7 +86,7 @@
         </activity>
         <activity android:name=".RuntimePermissions" />
         <activity android:name=".UserCenter.UserInfoActivity" />
-        <activity android:name=".UserCenter.SettingActivity"></activity>
+        <activity android:name=".UserCenter.SettingActivity" />
         <activity android:name=".Call.CallActivity" />
         <activity android:name=".Call.VideoCallActivity" />
         <activity android:name=".Call.VoiceCallActivity" />
@@ -91,6 +100,8 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/float_window_info" />
         </receiver>
+
+        <activity android:name=".Contacts.AddContactActivity"></activity>
     </application>
 
 </manifest>

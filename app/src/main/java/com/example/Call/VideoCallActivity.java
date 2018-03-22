@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -38,24 +39,46 @@ public class VideoCallActivity extends CallActivity implements View.OnClickListe
     private RelativeLayout.LayoutParams oppositeParams = null;
 
     // 获取控件
-    View controlLayout=findViewById(R.id.layout_call_control);
-    RelativeLayout surfaceLayout=findViewById(R.id.layout_surface_container);
+    private View controlLayout;
+    private RelativeLayout surfaceLayout;
 
-    ImageButton exitFullScreenBtn=findViewById(R.id.btn_exit_full_screen);
-    TextView callStateView=findViewById(R.id.text_call_state);
-    TextView callTimeView=findViewById(R.id.text_call_time);
-    ImageButton micSwitch=findViewById(R.id.btn_mic_switch);
-    ImageButton cameraSwitch=findViewById(R.id.btn_camera_switch);
-    ImageButton speakerSwitch=findViewById(R.id.btn_speaker_switch);
-    ImageButton recordSwitch=findViewById(R.id.btn_record_switch);
-    ImageButton changeCameraSwitch=findViewById(R.id.btn_change_camera_switch);
-    FloatingActionButton rejectCallFab=findViewById(R.id.fab_reject_call);
-    FloatingActionButton endCallFab=findViewById(R.id.fab_end_call);
-    FloatingActionButton answerCallFab=findViewById(R.id.fab_answer_call);
+    private ImageButton exitFullScreenBtn;
+    private TextView callStateView;
+    private TextView callTimeView;
+    private ImageButton micSwitch;
+    private ImageButton cameraSwitch;
+    private ImageButton speakerSwitch;
+    private ImageButton recordSwitch;
+    private ImageButton changeCameraSwitch;
+    private FloatingActionButton rejectCallFab;
+    private FloatingActionButton endCallFab;
+    private FloatingActionButton answerCallFab;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_call);
+
+        initView();
+    }
+
+    /**
+     * 重载父类方法,实现一些当前通话的操作，
+     */
+    @Override protected void initView() {
+        super.initView();
+        controlLayout=(View)findViewById(R.id.layout_call_control);
+        surfaceLayout=(RelativeLayout)findViewById(R.id.layout_surface_container);
+        callStateView=(TextView)findViewById(R.id.text_call_state);
+        callTimeView=(TextView)findViewById(R.id.text_call_time);
+        cameraSwitch=(ImageButton)findViewById(R.id.btn_camera_switch);
+        exitFullScreenBtn=(ImageButton)findViewById(R.id.btn_exit_full_screen);
+        micSwitch=(ImageButton)findViewById(R.id.btn_mic_switch);
+        speakerSwitch=(ImageButton)findViewById(R.id.btn_speaker_switch);
+        recordSwitch=(ImageButton)findViewById(R.id.btn_record_switch);
+        changeCameraSwitch=(ImageButton)findViewById(R.id.btn_change_camera_switch);
+        rejectCallFab=(FloatingActionButton)findViewById(R.id.fab_reject_call);
+        endCallFab=(FloatingActionButton)findViewById(R.id.fab_end_call);
+        answerCallFab=(FloatingActionButton)findViewById(R.id.fab_answer_call);
 
         controlLayout.setOnClickListener(VideoCallActivity.this);
         exitFullScreenBtn.setOnClickListener(VideoCallActivity.this);
@@ -67,16 +90,6 @@ public class VideoCallActivity extends CallActivity implements View.OnClickListe
         endCallFab.setOnClickListener(VideoCallActivity.this);
         answerCallFab.setOnClickListener(VideoCallActivity.this);
 
-
-
-        initView();
-    }
-
-    /**
-     * 重载父类方法,实现一些当前通话的操作，
-     */
-    @Override protected void initView() {
-        super.initView();
         if (CallManager.getInstance().isInComingCall()) {
             endCallFab.setVisibility(View.GONE);
             answerCallFab.setVisibility(View.VISIBLE);
@@ -130,7 +143,7 @@ public class VideoCallActivity extends CallActivity implements View.OnClickListe
                 break;
             case R.id.btn_exit_full_screen:
                 // 最小化通话界面
-                exitFullScreen();
+                //exitFullScreen();
                 break;
             case R.id.btn_change_camera_switch:
                 // 切换摄像头
@@ -178,11 +191,11 @@ public class VideoCallActivity extends CallActivity implements View.OnClickListe
     /**
      * 退出全屏通话界面
      */
-    private void exitFullScreen() {
-        CallManager.getInstance().addFloatWindow();
-        // 结束当前界面
-        onFinish();
-    }
+//    private void exitFullScreen() {
+//        CallManager.getInstance().addFloatWindow();
+//        // 结束当前界面
+//        onFinish();
+//    }
 
     /**
      * 切换摄像头

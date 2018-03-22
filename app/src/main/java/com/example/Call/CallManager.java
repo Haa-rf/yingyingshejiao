@@ -13,8 +13,6 @@ import android.support.v7.app.NotificationCompat.Builder;
 import com.example.R;
 import com.hyphenate.chat.EMCallManager;
 import com.hyphenate.chat.EMClient;
-import com.hyphenate.chat.EMMessage;
-import com.hyphenate.chat.EMTextMessageBody;
 import com.hyphenate.exceptions.EMNoActiveCallException;
 import com.hyphenate.exceptions.EMServiceNotReadyException;
 
@@ -71,10 +69,11 @@ public class CallManager {
     private CallType callType = CallType.VIDEO;
     private EndType endType = EndType.CANCEL;
 
+
     /**
      * 私有化构造函数
      */
-    private CallManager() {
+    public CallManager() {
     }
 
     /**
@@ -92,6 +91,7 @@ public class CallManager {
      */
     public void init(Context context) {
         this.context = context;
+        //chatId="user1";
 
         // 初始化音频池
         initSoundPool();
@@ -134,69 +134,69 @@ public class CallManager {
 
     /**
      * 通话结束，保存一条记录通话的消息
-     */
-    public void saveCallMessage() {
-        VMLog.d("The call ends and the call log message is saved! " + endType);
-        EMMessage message = null;
-        EMTextMessageBody body = null;
-        String content = null;
-        if (isInComingCall) {
-            message = EMMessage.createReceiveMessage(EMMessage.Type.TXT);
-            message.setFrom(chatId);
-        } else {
-            message = EMMessage.createSendMessage(EMMessage.Type.TXT);
-            message.setTo(chatId);
-        }
-        switch (endType) {
-            case NORMAL: // 正常结束通话
-                content = String.valueOf(getCallTime());
-                break;
-            case CANCEL: // 取消
-                content = context.getString(R.string.call_cancel);
-                break;
-            case CANCELLED: // 被取消
-                content = context.getString(R.string.call_cancel_is_incoming);
-                break;
-            case BUSY: // 对方忙碌
-                content = context.getString(R.string.call_busy);
-                break;
-            case OFFLINE: // 对方不在线
-                content = context.getString(R.string.call_offline);
-                break;
-            case REJECT: // 拒绝的
-                content = context.getString(R.string.call_reject_is_incoming);
-                break;
-            case REJECTED: // 被拒绝的
-                content = context.getString(R.string.call_reject);
-                break;
-            case NOREVERSE: // 未响应
-                content = context.getString(R.string.call_no_response);
-                break;
-            case TRANSPORT: // 建立连接失败
-                content = context.getString(R.string.call_connection_fail);
-                break;
-            case DIFFERENT: // 通讯协议不同
-                content = context.getString(R.string.call_offline);
-                break;
-            default:
-                // 默认取消
-                content = context.getString(R.string.call_cancel);
-                break;
-        }
-        body = new EMTextMessageBody(content);
-        message.addBody(body);
-        message.setStatus(EMMessage.Status.SUCCESS);
-        if (callType == CallType.VIDEO) {
-            message.setAttribute("attr_call_video", true);
-        } else {
-            message.setAttribute("attr_call_voice", true);
-        }
-        message.setUnread(false);
-        // 调用sdk的保存消息方法
-        EMClient.getInstance().chatManager().saveMessage(message);
-    }
+     *
+     public void saveCallMessage() {
+     VMLog.d("The call ends and the call log message is saved! " + endType);
+     EMMessage message = null;
+     EMTextMessageBody body = null;
+     String content = null;
+     if (isInComingCall) {
+     message = EMMessage.createReceiveMessage(EMMessage.Type.TXT);
+     message.setFrom(chatId);
+     } //else {
+     //   message = EMMessage.createSendMessage(EMMessage.Type.TXT);
+     //  //    message.setTo(chatId);
+     //  }
+     switch (endType) {
+     case NORMAL: // 正常结束通话
+     content = String.valueOf(getCallTime());
+     break;
+     case CANCEL: // 取消
+     content = context.getString(R.string.call_cancel);
+     break;
+     case CANCELLED: // 被取消
+     content = context.getString(R.string.call_cancel_is_incoming);
+     break;
+     case BUSY: // 对方忙碌
+     content = context.getString(R.string.call_busy);
+     break;
+     case OFFLINE: // 对方不在线
+     content = context.getString(R.string.call_offline);
+     break;
+     case REJECT: // 拒绝的
+     content = context.getString(R.string.call_reject_is_incoming);
+     break;
+     case REJECTED: // 被拒绝的
+     content = context.getString(R.string.call_reject);
+     break;
+     case NOREVERSE: // 未响应
+     content = context.getString(R.string.call_no_response);
+     break;
+     case TRANSPORT: // 建立连接失败
+     content = context.getString(R.string.call_connection_fail);
+     break;
+     case DIFFERENT: // 通讯协议不同
+     content = context.getString(R.string.call_offline);
+     break;
+     default:
+     // 默认取消
+     content = context.getString(R.string.call_cancel);
+     break;
+     }
+     body = new EMTextMessageBody(content);
+     message.addBody(body);
+     message.setStatus(EMMessage.Status.SUCCESS);
+     if (callType == CallType.VIDEO) {
+     message.setAttribute("attr_call_video", true);
+     } else {
+     message.setAttribute("attr_call_voice", true);
+     }
+     message.setUnread(false);
+     // 调用sdk的保存消息方法
+     EMClient.getInstance().chatManager().saveMessage(message);
+     }
 
-    /**
+     /**
      * 设置通话图像回调处理器
      */
     public void setCallCameraDataProcessor() {
@@ -211,6 +211,7 @@ public class CallManager {
      * 开始呼叫对方
      */
     public void makeCall() {
+
         try {
             if (callType == CallType.VIDEO) {
                 EMClient.getInstance().callManager().makeVideoCall(chatId);
@@ -236,7 +237,7 @@ public class CallManager {
             e.printStackTrace();
         }
         // 保存一条通话消息
-        saveCallMessage();
+        //saveCallMessage();
         // 通话结束，重置通话状态
         reset();
     }
@@ -253,7 +254,7 @@ public class CallManager {
             VMLog.e("结束通话失败：error %d - %s", e.getErrorCode(), e.getMessage());
         }
         // 挂断电话调用保存消息方法
-        saveCallMessage();
+        // saveCallMessage();
         // 通话结束，重置通话状态
         reset();
     }
@@ -261,16 +262,15 @@ public class CallManager {
     /**
      * 接听通话
      */
-    public boolean answerCall() {
+    public void answerCall() {
         // 接听通话后关闭通知铃音
         stopCallSound();
         // 调用接通通话方法
         try {
             EMClient.getInstance().callManager().answerCall();
-            return true;
         } catch (EMNoActiveCallException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
-            return false;
         }
     }
 

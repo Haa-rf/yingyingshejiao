@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 //        }
         setContentView(R.layout.activity_main);
         // runtime permission for android 6.0, just require all permissions here for simple
+        permission();
         requestPermissions();
 
         initBottomNavigationBar();
@@ -168,6 +170,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .initialise(); //initialise 一定要放在 所有设置的最后一项
     }
 
+
+    /**
+     * 申请在其他应用上显示权限
+     */
+    public void permission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivityForResult(intent, 1);
+            } else {
+
+            }
+        }
+    }
 
     /**
      * 使用AddPermissions包申请权限

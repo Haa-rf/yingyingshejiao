@@ -8,12 +8,12 @@
         "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_title_bar.xml"
     },
     {
-        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_commom_back_btn.xml",
-        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_commom_back_btn.xml"
-    },
-    {
         "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_layout_emojicon_menu.xml",
         "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_layout_emojicon_menu.xml"
+    },
+    {
+        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_commom_back_btn.xml",
+        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_commom_back_btn.xml"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_title_bar.xml",

@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\fade_out.xml",
-        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\anim\\fade_out.xml"
-    },
-    {
         "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\push_bottom_out.xml",
         "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\anim\\push_bottom_out.xml"
+    },
+    {
+        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\fade_out.xml",
+        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\anim\\fade_out.xml"
     },
     {
         "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\push_top_out2.xml",

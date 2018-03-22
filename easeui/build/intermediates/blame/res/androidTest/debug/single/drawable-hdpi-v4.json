@@ -12,24 +12,24 @@
         "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatfrom_voice_playing.png"
     },
     {
-        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_to_group_details_normal.png",
-        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_to_group_details_normal.png"
-    },
-    {
         "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatfrom_voice_playing_f2.png",
         "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatfrom_voice_playing_f2.png"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_groups_icon.png",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_groups_icon.png"
+        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_to_group_details_normal.png",
+        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_to_group_details_normal.png"
+    },
+    {
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatto_bg_focused.9.png",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatto_bg_focused.9.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_7.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_7.png"
     },
     {
-        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatto_bg_focused.9.png",
-        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatto_bg_focused.9.png"
+        "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_groups_icon.png",
+        "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_groups_icon.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_settings_selected.png",
@@ -188,12 +188,12 @@
         "source": "C:\\Users\\苟仁福\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.0.aar\\7f97f40557e5169e7f4ce373b375b640\\res\\drawable-hdpi-v4\\googleg_disabled_color_18.png"
     },
     {
-        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatting_setmode_voice_btn_normal.png",
-        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatting_setmode_voice_btn_normal.png"
-    },
-    {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chat_face_normal.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chat_face_normal.png"
+    },
+    {
+        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatting_setmode_voice_btn_normal.png",
+        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatting_setmode_voice_btn_normal.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_unread_count_bg.9.png",
@@ -268,12 +268,12 @@
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatting_setmode_voice_btn_normal.png"
     },
     {
-        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_30.png",
-        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_30.png"
-    },
-    {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_14.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_14.png"
+    },
+    {
+        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ee_30.png",
+        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ee_30.png"
     },
     {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_search_clear_pressed.png",
@@ -284,12 +284,12 @@
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_location_msg.9.png"
     },
     {
-        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_search_clear_normal.png",
-        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_search_clear_normal.png"
-    },
-    {
         "merged": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_chatto_voice_playing.png",
         "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_chatto_voice_playing.png"
+    },
+    {
+        "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ease_search_clear_normal.png",
+        "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ease_search_clear_normal.png"
     },
     {
         "merged": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\googleg_standard_color_18.png",

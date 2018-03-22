@@ -65,7 +65,7 @@ public class CallStateListener implements EMCallStateChangeListener {
                     }
                 }
                 // 通话结束，保存消息
-                CallManager.getInstance().saveCallMessage();
+                //CallManager.getInstance().saveCallMessage();
                 CallManager.getInstance().reset();
                 break;
             case NETWORK_UNSTABLE:

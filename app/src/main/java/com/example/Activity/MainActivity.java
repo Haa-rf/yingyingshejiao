@@ -6,25 +6,31 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.PowerManager;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
-
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
+import com.example.Call.CallManager;
+import com.example.Call.VideoCallActivity;
+import com.example.Call.VoiceCallActivity;
 import com.example.Contacts.ContactsFragment;
 import com.example.Conversation.ConversationFragment;
 import com.example.R;
 import com.example.UserCenter.UserCenterFragment;
+import com.hyphenate.easeui.EaseConstant;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
@@ -50,9 +56,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private Context context;
     private boolean ckeck;
 
+    //当前聊天的 ID
+    private String chatId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        activity = this;
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             String packageName = getPackageName();
             PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
@@ -85,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         setContentView(R.layout.activity_main);
         // runtime permission for android 6.0, just require all permissions here for simple
         requestPermissions();
+        permission();
 
         initBottomNavigationBar();
         initViewPager();
@@ -165,6 +177,22 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .addItem(new BottomNavigationItem(R.drawable.usercenter_icon_normal, "个人信息").setActiveColorResource(R.color.btn_white_normal).setInactiveIconResource(R.drawable.usercenter_icon_selected).setInActiveColorResource(R.color.main_bottom_button_bg))
                 .setFirstSelectedPosition(0 )
                 .initialise(); //initialise 一定要放在 所有设置的最后一项
+    }
+
+
+    /**
+     * 申请在其他应用上显示权限
+     */
+    public void permission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivityForResult(intent, 1);
+            } else {
+
+            }
+        }
     }
 
 

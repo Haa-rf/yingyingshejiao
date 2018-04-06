@@ -16,6 +16,8 @@ import com.hyphenate.chat.EMClient;
  */
 public class CallActivity extends MainActivity {
 
+
+
     // 震动器
     private Vibrator vibrator;
 
@@ -33,6 +35,7 @@ public class CallActivity extends MainActivity {
      * 初始化界面方法，做一些界面的初始化操作
      */
     protected void initView() {
+        activity=this;
 
         initCallPushProvider();
 

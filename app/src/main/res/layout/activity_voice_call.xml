@@ -5,7 +5,7 @@
     android:id="@+id/layout_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.Call.VoiceCallActivity"
+    tools:context="com.yingyingshejiao.com.yingyingshejiao.Call.VoiceCallActivity"
     android:animateLayoutChanges="true"
     android:clipToPadding="false"
     android:fitsSystemWindows="false">

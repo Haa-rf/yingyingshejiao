@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example"
+    package="com.yingyingshejiao"
     android:versionCode="100"
     android:versionName="1.0.0">
 
     <!-- Required -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -22,6 +21,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -29,7 +29,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:name=".MyApplication"
+        android:name="com.yingyingshejiao.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -62,14 +62,21 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name="com.yingyingshejiao.Contacts.MyBroadcast"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.FRIEND_CHANGE" />
+            </intent-filter>
+        </receiver>
 
         <!-- activity注册 -->
-        <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".RegisterAndLogin.LoginActivity" />
-        <activity android:name=".RegisterAndLogin.RegisterActivity" />
-        <activity android:name=".Chat.ChatTestActivity"></activity>
-        <activity android:name=".Chat.ChatActivity"></activity>
-        <activity android:name=".Activity.StartActivity">
+        <activity android:name="com.yingyingshejiao.Activity.MainActivity" />
+        <activity android:name="com.yingyingshejiao.RegisterAndLogin.LoginActivity" />
+        <activity android:name="com.yingyingshejiao.RegisterAndLogin.RegisterActivity" />
+        <activity android:name="com.yingyingshejiao.Chat.ChatTestActivity" />
+        <activity android:name="com.yingyingshejiao.Chat.ChatActivity" />
+        <activity android:name="com.yingyingshejiao.Activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -77,13 +84,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".RuntimePermissions" />
-        <activity android:name=".UserCenter.UserInfoActivity" />
-        <activity android:name=".UserCenter.SettingActivity"></activity>
-        <activity android:name=".Call.CallActivity" />
-        <activity android:name=".Call.VideoCallActivity" />
-        <activity android:name=".Call.VoiceCallActivity" />
+        <activity android:name="com.yingyingshejiao.UserCenter.UserInfoActivity" />
+        <activity android:name="com.yingyingshejiao.UserCenter.SettingActivity" />
+        <activity android:name="com.yingyingshejiao.Call.CallActivity" />
+        <activity android:name="com.yingyingshejiao.Call.VideoCallActivity" />
+        <activity android:name="com.yingyingshejiao.Call.VoiceCallActivity" />
 
-        <receiver android:name=".Call.FloatWindow">
+        <receiver android:name="com.yingyingshejiao.Call.FloatWindow">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -92,6 +99,10 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/float_window_info" />
         </receiver>
+
+        <activity android:name="com.yingyingshejiao.Contacts.AddContactActivity" />
+        <activity android:name="com.yingyingshejiao.Contacts.JoinGroupActivity" />
+        <activity android:name="com.yingyingshejiao.Contacts.MyGroupActivity"></activity>
     </application>
 
 </manifest>

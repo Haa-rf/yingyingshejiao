@@ -15,10 +15,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.Call.CallManager;
+import com.example.Call.VideoCallActivity;
+import com.example.Call.VoiceCallActivity;
 import com.example.MyApplication;
 import com.example.R;
 import com.example.UserCenter.UserInfoActivity;
 import com.hyphenate.chat.EMMessage;
+import com.hyphenate.easeui.EaseConstant;
 import com.hyphenate.easeui.ui.EaseChatFragment;
 import com.hyphenate.easeui.widget.chatrow.EaseCustomChatRowProvider;
 import com.hyphenate.util.PathUtil;
@@ -70,25 +74,27 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
     private static final int MESSAGE_TYPE_RECV_VIDEO_CALL = 4;
 
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState){
-        return super.onCreateView(inflater,container,saveInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState) {
+        return super.onCreateView(inflater, container, saveInstanceState);
 
     }
 
-    public void setUpView(){
+    public void setUpView() {
         setChatFragmentHelper(this);
         super.setUpView();
         //inputMenu.getEmojiconMenu().addEmojiconGroup(EmojiiconExampleGroupData.getData());
     }
-    protected void registerExtendMenuItem(){
+
+    protected void registerExtendMenuItem() {
         super.registerExtendMenuItem();
-        inputMenu.registerExtendMenuItem(R.string.attach_voice_call,R.drawable.ease_chat_voice_call_self,ITEM_VOICE_CALL,extendMenuItemClickListener);
-        inputMenu.registerExtendMenuItem(R.string.attach_file,R.drawable.ease_chat_item_file,ITEM_FILE,extendMenuItemClickListener);
-        inputMenu.registerExtendMenuItem(R.string.attach_video,R.drawable.ease_app_panel_video_icon,ITEM_VIDEO,extendMenuItemClickListener);
+        inputMenu.registerExtendMenuItem(R.string.attach_voice_call, R.drawable.ease_chat_voice_call_self, ITEM_VOICE_CALL, extendMenuItemClickListener);
+        inputMenu.registerExtendMenuItem(R.string.attach_file, R.drawable.ease_chat_item_file, ITEM_FILE, extendMenuItemClickListener);
+        inputMenu.registerExtendMenuItem(R.string.attach_video, R.drawable.ease_app_panel_video_icon, ITEM_VIDEO, extendMenuItemClickListener);
     }
-    public void onActivityResult(int requestCode,int resultCode,Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        if(resultCode == Activity.RESULT_OK){
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_CODE_SELECT_VIDEO: //发送选中的视频
                     if (data != null) {
@@ -121,10 +127,11 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
 
 
     }
+
     @Override
     public void onSetMessageAttributes(EMMessage message) {
-        message.setAttribute("headPic","https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=359604599,305372113&fm=27&gp=0.jpg");
-        message.setAttribute("nickname","Nick");
+        message.setAttribute("headPic", "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=359604599,305372113&fm=27&gp=0.jpg");
+        message.setAttribute("nickname", "Nick");
 
     }
 
@@ -136,7 +143,7 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
 
     @Override
     public void onAvatarClick(String username) {
-        Intent intent = new Intent(getActivity(),UserInfoActivity.class);
+        Intent intent = new Intent(getActivity(), UserInfoActivity.class);
         intent.putExtra("username", username);
         startActivity(intent);
 
@@ -169,16 +176,17 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
                 selectFileFromLocal();
                 break;
             case ITEM_VOICE_CALL:
-                // startVoiceCall();
+                startVoiceCall();
                 break;
             case ITEM_VIDEO_CALL:
-                //startVideoCall();
+                startVideoCall();
                 break;
             default:
                 break;
         }
         return false;
     }
+
     protected void selectFileFromLocal() {
         Intent intent = null;
         if (Build.VERSION.SDK_INT < 19) { //api 19 and later, we can't use this way, demo just select from images
@@ -196,5 +204,34 @@ public class ChatFragment extends EaseChatFragment implements EaseChatFragment.E
     public EaseCustomChatRowProvider onSetCustomChatRowProvider() {
         return null;
     }
-}
 
+    public void startVoiceCall() {
+        // 语音通话
+        Intent intent = new Intent(ChatFragment.this.getActivity(), VoiceCallActivity.class);
+        // 设置被呼叫方 username
+        toChatUsername = fragmentArgs.getString(EaseConstant.EXTRA_USER_ID);
+        CallManager.getInstance().setChatId(toChatUsername);
+        // 设置通话为自己呼出的
+        CallManager.getInstance().setInComingCall(false);
+        // 设置当前通话类型为音频通话
+        CallManager.getInstance().setCallType(CallManager.CallType.VOICE);
+
+        startActivity(intent);
+
+    }
+
+    public void startVideoCall() {
+        // 语音通话
+        Intent intent = new Intent(ChatFragment.this.getActivity(), VideoCallActivity.class);
+        // 设置被呼叫方 username
+        toChatUsername = fragmentArgs.getString(EaseConstant.EXTRA_USER_ID);
+        CallManager.getInstance().setChatId(toChatUsername);
+        // 设置通话为自己呼出的
+        CallManager.getInstance().setInComingCall(false);
+        // 设置当前通话类型为视频通话
+        CallManager.getInstance().setCallType(CallManager.CallType.VIDEO);
+
+        startActivity(intent);
+
+    }
+}

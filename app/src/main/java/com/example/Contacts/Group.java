@@ -6,12 +6,18 @@ package com.example.Contacts;
 
 public class Group {
     private String GroupName;
+    private String GroupId;
 
     private int imageId;
 
-    public Group(String GroupName, int imageId) {
+    public Group(String GroupName,String GroupId, int imageId) {
         this.GroupName = GroupName;
+        this.GroupId = GroupId;
         this.imageId = imageId;
+    }
+
+    public String getGroupId() {
+        return GroupId;
     }
 
     public String getName() {

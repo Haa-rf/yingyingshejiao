@@ -199,7 +199,7 @@ class PhotoViewAttacher implements IPhotoView, View.OnTouchListener, VersionedGe
 
 	/**
 	 * Clean-up the resources attached to this object. This needs to be called
-	 * when the ImageView is no longer used. A good example is from
+	 * when the ImageView is no longer used. A good yingyingshejiao is from
 	 * {@link View#onDetachedFromWindow()} or from
 	 * {@link android.app.Activity#onDestroy()}. This is automatically called if
 	 * you are using {@link EasePhotoView.co.senab.photoview.PhotoView}.

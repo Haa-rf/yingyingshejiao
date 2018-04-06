@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "D:\\Android studio\\Projects\\yingyingshejiao-master (3)\\yingyingshejiao-master3\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
-                    "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "D:\\Android studio\\Projects\\yingyingshejiao-master (3)\\yingyingshejiao-master3\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -16,40 +16,10 @@
             ]
         },
         {
-            "outputFile": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "D:\\Android studio\\Projects\\yingyingshejiao-master (3)\\yingyingshejiao-master3\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
-                    "source": "D:\\Android studio\\Projects\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,108",
-                        "endColumns": "52,53",
-                        "endOffsets": "103,157"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-large-v4\\values-large-v4.xml",
-            "map": [
-                {
-                    "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,108",
-                        "endColumns": "52,53",
-                        "endOffsets": "103,157"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
-            "map": [
-                {
-                    "source": "D:\\Program Files\\repo\\yingyingshejiao\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "D:\\Android studio\\Projects\\yingyingshejiao-master (3)\\yingyingshejiao-master3\\easeui\\build\\intermediates\\bundles\\debug\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

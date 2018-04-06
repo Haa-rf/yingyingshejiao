@@ -1,9 +1,11 @@
 package com.example.Activity;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
@@ -23,10 +25,15 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
 import com.example.Contacts.ContactsFragment;
+import com.example.Contacts.MyBroadcast;
+import com.example.Contacts.MyContactListener;
+import com.example.Conversation.ConversationFragment;
 import com.example.Conversation.ConversationListFragment;
 import com.example.R;
 import com.example.UserCenter.UserCenterFragment;
-import com.hyphenate.easeui.ui.EaseConversationListFragment;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.easeui.domain.EaseUser;
+import com.hyphenate.exceptions.HyphenateException;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
@@ -48,10 +55,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private List<Fragment> mList; //ViewPager的数据源
     private ShapeBadgeItem mShapeBadgeItem;//添加角标
     private TextBadgeItem mTextBadgeItem;
-
     private Context context;
     private boolean ckeck;
-
+    private String clickUserName;
+//    private List<String> Myuser;
+    private IntentFilter intentFilter;
+    private MyBroadcast FriendsChangeReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +72,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                     //some device doesn't has activity to handle this intent
                     //so add try catch
                     Intent intent = new Intent();
-                    intent.setAction(android.provider.Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+                    intent.setAction(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
                     intent.setData(Uri.parse("package:" + packageName));
+                    EMClient.getInstance().contactManager().setContactListener(new MyContactListener(MainActivity.this));
+                   // EMChat.getInstance().setAppInited();
+
+
                     startActivity(intent);
                 } catch (Exception e) {
                 }
@@ -84,6 +97,25 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 //            startActivity(new Intent(this, LoginActivity.class));
 //            return;
 //        }
+
+
+        /*new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    MyFriends= EMClient.getInstance().contactManager().getAllContactsFromServer();
+                } catch (HyphenateException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();*/
+        /*new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getContact();
+            }
+        }).start();*/
+
         setContentView(R.layout.activity_main);
         // runtime permission for android 6.0, just require all permissions here for simple
         permission();
@@ -163,28 +195,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 
         /** 添加导航按钮 */
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.message_icon_normal, "消息").setActiveColorResource(R.color.btn_white_normal).setInactiveIconResource(R.drawable.message_icon_selected).setInActiveColorResource(R.color.main_bottom_button_bg).setBadgeItem(mTextBadgeItem))
-                .addItem(new BottomNavigationItem(R.drawable.contacts_icon_normal, "联系人").setActiveColorResource(R.color.btn_white_normal).setInactiveIconResource(R.drawable.contacts_icon_selected).setInActiveColorResource(R.color.main_bottom_button_bg).setBadgeItem(mShapeBadgeItem))
+                .addItem(new BottomNavigationItem(R.drawable.message_icon_normal, "消息").setActiveColorResource(R.color.btn_white_normal).setInactiveIconResource(R.drawable.message_icon_selected).setInActiveColorResource(R.color.main_bottom_button_bg))
+                .addItem(new BottomNavigationItem(R.drawable.contacts_icon_normal, "联系人").setActiveColorResource(R.color.btn_white_normal).setInactiveIconResource(R.drawable.contacts_icon_selected).setInActiveColorResource(R.color.main_bottom_button_bg))
                 .addItem(new BottomNavigationItem(R.drawable.usercenter_icon_normal, "个人信息").setActiveColorResource(R.color.btn_white_normal).setInactiveIconResource(R.drawable.usercenter_icon_selected).setInActiveColorResource(R.color.main_bottom_button_bg))
                 .setFirstSelectedPosition(0 )
                 .initialise(); //initialise 一定要放在 所有设置的最后一项
     }
 
-
-    /**
-     * 申请在其他应用上显示权限
-     */
-    public void permission() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (!Settings.canDrawOverlays(this)) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivityForResult(intent, 1);
-            } else {
-
-            }
-        }
-    }
 
     /**
      * 使用AddPermissions包申请权限
@@ -295,6 +312,31 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
             finish();
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    /*public void getContact(){
+                try {
+                    Myuser= EMClient.getInstance().contactManager().getAllContactsFromServer();
+                } catch (HyphenateException e) {
+                    e.printStackTrace();
+                }
+            }*/
+  /*  public void TransfUserName(String strValue) {
+        clickUserName=strValue;
+    }*/
+    /**
+     * 申请在其他应用上显示权限
+     */
+    public void permission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivityForResult(intent, 1);
+            } else {
+
+            }
+        }
     }
 
 }

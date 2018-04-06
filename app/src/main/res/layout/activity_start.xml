@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/welcome"
     android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-    tools:context="com.example.Activity.StartActivity">
+    tools:context="com.yingyingshejiao.com.yingyingshejiao.Activity.StartActivity">
 
 </RelativeLayout>
